@@ -5,6 +5,7 @@ function Testic(){
             <p>Evo slika sunca</p>
             <p>bilo sta</p>
             <p>hej hej</p>
+            <p>proba2</p>
         </div>
     );
 }
