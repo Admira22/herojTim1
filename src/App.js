@@ -1,24 +1,62 @@
-import logo from './logo.svg';
 import './App.css';
+import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import axios from "axios";
+import Header from "./registeredUser/Header";
+import WelcomePage from "./registeredUser/WelcomePage";
+
 
 function App() {
+
+  const theme = createTheme({
+      palette:{
+          primary:{
+              main: "#f44336",
+              light: "#e57373",
+              dark: "#b71c1c",
+              contrastText: "#ffebee"
+          },
+          secondary:{
+              main: "#3f51b5",
+              light: "#7986cb",
+              dark: "#1a237e",
+              contrastText: "#e8eaf6"
+          }
+      },
+
+  });
+
+  // function callPostMethod(){
+  //     axios.post("http://127.0.0.1:8000/", {
+  //         firstName: 'Ime',
+  //         lastName: 'Prezime'
+  //     }).then(
+  //         (response) =>{
+  //         console.log(response)
+  //     },
+  //         (error) => {
+  //             console.log(error)
+  //         }
+  //         )
+  // }
+  // function getListaPitanja(){
+  //     axios.get('http://127.0.0.1:8000/pitanja/')
+  //         .then(r =>{
+  //             console.log(r)
+  //         })
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline/>
+      <BrowserRouter>
+          <Routes>
+              <Route path="/" element={<WelcomePage/>}/>
+          </Routes>
+      </BrowserRouter>
+      {/*  <button onClick={callPostMethod}>post metod</button>*/}
+      {/*  <button onClick={getListaPitanja}>get method</button>*/}
+    </ThemeProvider>
   );
 }
 

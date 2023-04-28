@@ -1,10 +1,13 @@
+import Button from '@mui/material/Button';
+import {Stack} from "@mui/material";
 function Proba(){
     return(
         <div>
-            <h1>HEROJ</h1>
-            <p>Evo slika sunca</p>
-            <img src={"https://i.pinimg.com/originals/fb/08/52/fb0852c1b6463112e78532530b4aa584.png"}/>
-            <p>Bas je slatko</p>
+            <Stack spacing={10} direction="row">
+            <Button variant="contained" color="secondary">Dugme</Button>
+            <Button variant="outlined">Outlined</Button>
+            <Button variant="text">Text</Button>
+                </Stack>
         </div>
     );
 }
