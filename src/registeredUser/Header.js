@@ -52,7 +52,7 @@ function Header(props) {
                                         fontSize="large"
                                      onClick={() => console.log('Clicked search icon!')}
                                      className="my-search-icon"
-                                     style={{ marginRight: '10px' }}/> <input type="text" placeholder="Pretraži" />
+                                     style={{ marginRight: '10px' }}/> <input type="text" placeholder="Pretraži..." />
                 </IconButton>
             </Toolbar>
             <Info/>

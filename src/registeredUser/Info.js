@@ -15,7 +15,7 @@ function Info(props) {
             "Dobro došli na web stranicu za Prvu pomoć." +
             "Ovdje ćete imati priliku načiti osnove prve pomoći, testirati svoje znanje." +
             "Pored toga imate mogućnost čitanja blogova koje pišu stručnjaci, te dobijanja informacija koje se tiču Vaše lokalne zajednice" +
-            "a tiču se Prve pomoći i Crvenog križa" ,
+            "a tiču se Prve pomoći i Crvenog križa." ,
         image: image1,
         //image: 'https://media.istockphoto.com/id/165632100/vector/medical-frame.jpg?s=612x612&w=0&k=20&c=1KBd83_uXpqzlIgEQ9f5Jis6-CA0aZ0fvKmUfykFzYA=',
         imageText: 'main image description',
