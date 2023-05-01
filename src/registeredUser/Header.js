@@ -5,6 +5,8 @@ import SearchIcon from '@mui/icons-material/Search';
 import Link from '@mui/material/Link';
 import Info from "./Info";
 import Footer from "./Footer";
+import News from "../probaDirektorij/News";
+import Lesson1 from "./Lesson1";
 
 
 function Header(props) {
@@ -56,6 +58,7 @@ function Header(props) {
                 </IconButton>
             </Toolbar>
             <Info/>
+            <Lesson1/>
             <Footer/>
         </React.Fragment>
     );
