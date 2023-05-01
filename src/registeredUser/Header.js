@@ -5,8 +5,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Link from '@mui/material/Link';
 import Info from "./Info";
 import Footer from "./Footer";
-import News from "../probaDirektorij/News";
-import Lesson1 from "./Lesson1";
+import Blog from "./Blog";
 
 
 function Header(props) {
@@ -15,29 +14,6 @@ function Header(props) {
 
     return (
         <React.Fragment>
-            {/*<Toolbar sx={{ borderBottom: 1, borderColor: 'divider'}}>*/}
-            {/*    <Button size="small">Logo</Button>*/}
-            {/*    <Typography*/}
-            {/*        component="h2"*/}
-            {/*        variant="h5"*/}
-            {/*        color="red"*/}
-            {/*        align="center"*/}
-            {/*        noWrap*/}
-            {/*        sx={{ flex: 1 }}*/}
-            {/*    >*/}
-            {/*        {"H E R O J"}*/}
-            {/*    </Typography>*/}
-            {/*    <IconButton>*/}
-            {/*        <SearchIcon  color="primary"*/}
-            {/*                     fontSize="large"*/}
-            {/*                     onClick={() => console.log('Clicked search icon!')}*/}
-            {/*                     className="my-search-icon"*/}
-            {/*                     style={{ marginRight: '10px' }}/> <input type="text" placeholder="Pretraži" />*/}
-            {/*    </IconButton>*/}
-            {/*    /!*<Button variant="outlined" size="small">*!/*/}
-            {/*    /!*    Odjavi se*!/*/}
-            {/*    /!*</Button>*!/*/}
-            {/*</Toolbar>*/}
             <Toolbar  component="nav" variant="regular" sx={{justifyContent: 'space-between', overflowX: 'auto',backgroundColor: '#931621' }} >
 
                 {titles.map((titles) =>(
@@ -58,7 +34,7 @@ function Header(props) {
                 </IconButton>
             </Toolbar>
             <Info/>
-            <Lesson1/>
+            <Blog/>
             <Footer/>
         </React.Fragment>
     );
