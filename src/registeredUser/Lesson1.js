@@ -3,6 +3,7 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Images from '../registeredUser/Images';
+import Link from "@mui/material/Link";
 
 
 function Lesson1(){
@@ -83,8 +84,26 @@ function Lesson1(){
                     <Images/>
                 </Item>
             </Grid>
-            <Grid item xs={12}>
-                <Item>HEELOO</Item>
+            <Grid item xs={6}>
+                <H2>VIDEO</H2>
+                <Item>
+                    Na sljedećem linku nalazi se video, vezan za prvu lekciju o prvoj pomoći.
+                    Preporučujemo Vam da pogledate.
+                    <br/>
+                    <Link href="https://www.youtube.com/watch?v=jfkv9v-qDYE" color="#b71c1c">
+                        {'Video'}
+                    </Link>
+                </Item>
+            </Grid>
+            <Grid item xs={6}>
+                <H2>PITANJA</H2>
+                <Item>
+                    Nakon završene prve lekcije u nastavku imate set pitnja koji će Vam pomoći, da se spremite za završni test iz Prve pomoći.
+                    <br/>
+                    <Link href="neki_link" color="#b71c1c">
+                        {'Pitanja'}
+                    </Link>
+                </Item>
             </Grid>
         </Grid>
     )

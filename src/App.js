@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import axios from "axios";
 import Header from "./registeredUser/Header";
 import WelcomePage from "./registeredUser/WelcomePage";
+import Lessons from "./registeredUser/Lessons";
 
 
 function App() {
