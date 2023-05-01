@@ -26,7 +26,7 @@ function Blog(){
         textAlign: 'center',
         color: theme.palette.secondary.main
     }));
-    const H3 = styled("h1")(({theme}) =>({
+    const H3 = styled("h3")(({theme}) =>({
         backgroundColor: theme.palette.primary,
         ...theme.typography.h6,
         padding: theme.spacing(10),
@@ -61,7 +61,7 @@ function Blog(){
                     To što imam fokus ili namjeru pomaže mi da imam zvijezdu Sjevernjaču za taj dan, tako da se mentalno ne zaglavim.</Item>
             </Grid>
             <Grid item xs={6}>
-                <H2>PROBUDI SVOJE TIJELO</H2>
+                <H2>PROBUDITE SVOJE TIJELO</H2>
                 <Item>
                     Probudi svoje tijelo. Moj drugi dnevni zadatak je pronaći 15-30 minuta za fizičku aktivnost, po mogućnosti na otvorenom.
                     To je zato što vježbanje nije samo dobro za naše fizičko zdravlje, već može pomoći i našem mentalnom i emocionalnom blagostanju.
