@@ -19,7 +19,7 @@ function Info(props) {
         image: image1,
         //image: 'https://media.istockphoto.com/id/165632100/vector/medical-frame.jpg?s=612x612&w=0&k=20&c=1KBd83_uXpqzlIgEQ9f5Jis6-CA0aZ0fvKmUfykFzYA=',
         imageText: 'main image description',
-        linkText: 'Nastavite čitati…',
+        //linkText: 'Nastavite čitati…',
     };
     return (
         <Paper
