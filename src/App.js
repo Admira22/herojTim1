@@ -4,6 +4,7 @@ import {BrowserRouter, Routes, Route} from "react-router-dom";
 import axios from "axios";
 import Header from "./registeredUser/Header";
 import WelcomePage from "./registeredUser/WelcomePage";
+import Profile from "./registeredUser/Profile";
 
 
 function App() {
@@ -52,6 +53,7 @@ function App() {
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<WelcomePage/>}/>
+              <Route path="/mojProfil" element={<Profile/>}/>
           </Routes>
       </BrowserRouter>
       {/*  <button onClick={callPostMethod}>post metod</button>*/}

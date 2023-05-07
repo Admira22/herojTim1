@@ -56,7 +56,7 @@ function Header(props) {
                 </IconButton>
             </Toolbar>
             <Info/>
-            <Footer/>
+            {/*<Footer/>*/}
         </React.Fragment>
     );
 }
