@@ -1,17 +1,16 @@
-import * as React from "react";
-import Info from "./Info";
 import Toolbar from "@mui/material/Toolbar";
 import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
-import Footer from "./Footer";
-import News from "./News";
-import Help from "./Help";
+import * as React from "react";
+import Info from "./Info";
 import Grid from "@mui/material/Grid";
+import News from "./News";
+import Blog1 from "./Blog1";
+import Help from "./Help";
 
-function WelcomePage() {
+function Blogs(){
     const titles = ["Logo","Lekcije", "Profil", "Blog", "Završni test" ,"ODJAVI SE"];
-
     return(
         <React.Fragment>
             <Toolbar  component="nav" variant="regular" sx={{justifyContent: 'space-between', overflowX: 'auto',backgroundColor: '#931621' }} >
@@ -36,18 +35,21 @@ function WelcomePage() {
             </Toolbar>
             <Info/>
             <Grid container spacing={5}>
-                <Grid item xs={4}>
-                    <News/>
-                </Grid>
-                <Grid item xs={4}>
-                    <News/>
+                <Grid item xs={8}>
+                    <Blog1/>
                 </Grid>
                 <Grid item xs={4}>
                     <Help/>
                 </Grid>
+                <Grid item xs={8}>
+                    <Blog1/>
+                </Grid>
+                <Grid item xs={8}>
+                    <Blog1/>
+                </Grid>
+
             </Grid>
-            <Footer/>
         </React.Fragment>
-    );
+    )
 }
-export default WelcomePage;
+export default Blogs;

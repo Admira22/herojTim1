@@ -2,6 +2,13 @@ import './App.css';
 import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import WelcomePage from "./registeredUser/WelcomePage";
+import Blog from "./registeredUser/Blog";
+import Lesson1 from "./registeredUser/Lesson1";
+import ListOfLessons from "./registeredUser/ListOfLessons";
+import Header from "./registeredUser/Header";
+import AllLessons from "./registeredUser/AllLessons";
+import Blogs from "./registeredUser/Blogs";
+
 
 
 
@@ -51,6 +58,10 @@ function App() {
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<WelcomePage/>}/>
+              <Route path="/Logo" element={<WelcomePage/>}/>
+              <Route path="/Blog" element={<Blogs/>}/>
+              <Route path="/Lekcije" element={<AllLessons/>}/>
+              <Route path="/Lekcija/1" element={<Lesson1/>}/>
           </Routes>
       </BrowserRouter>
       {/*  <button onClick={callPostMethod}>post metod</button>*/}

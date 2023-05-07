@@ -3,14 +3,11 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Link from '@mui/material/Link';
-import Info from "./Info";
-import Footer from "./Footer";
-import Blog from "./Blog";
 
 
 function Header(props) {
     //const { sections, title } = props;
-    const titles = ["Logo","Lekcije", "Moj profil", "Blog", "Završni test" ,"ODJAVI SE"];
+    const titles = ["Logo","Lekcije", "Profil", "Blog", "Završni test" ,"ODJAVI SE"];
 
     return (
         <React.Fragment>
@@ -22,7 +19,8 @@ function Header(props) {
                           noWrap
                        // key={title}
                         variant="body1"
-                        href={titles.url}
+                         // href = {'/blog'}
+                        href={titles}
                         sx={{ p: 1, flexShrink: 0}}> {titles} </Link>
                     ))}
                 <IconButton>
@@ -33,9 +31,6 @@ function Header(props) {
                                      style={{ marginRight: '10px' }}/> <input type="text" placeholder="Pretraži..." />
                 </IconButton>
             </Toolbar>
-            <Info/>
-            <Blog/>
-            <Footer/>
         </React.Fragment>
     );
 }
