@@ -11,6 +11,7 @@ import Button from "@mui/material/Button";
 import Typography from '@mui/material/Typography';
 import  Progres from "./Progres";
 import Footer from "./Footer";
+import Info from "./Info";
 
 
 function kreirajPodatke(podatak1,podatak2){
@@ -42,6 +43,7 @@ function Profile(){
     return(
         <React.Fragment>
             <Header/>
+            <Info/>
             <Grid container spacing={3}>
                 <Grid item md={8}>
                     <TableContainer>
