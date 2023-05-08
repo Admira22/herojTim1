@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';
-import image1 from '../images/image1.png';
+//import image1 from '../images/image1.png';
 
 function Info(props) {
     //const { post } = props;
@@ -13,11 +13,11 @@ function Info(props) {
         title: 'HEROJ',
         description:
             "Dobro došli na web stranicu za Prvu pomoć." +
-            "Ovdje ćete imati priliku načiti osnove prve pomoći, testirati svoje znanje." +
-            "Pored toga imate mogućnost čitanja blogova koje pišu stručnjaci, te dobijanja informacija koje se tiču Vaše lokalne zajednice" +
+            "Ovdje ćete imati priliku naučiti osnove prve pomoći, testirati svoje znanje." +
+            "Pored toga imate mogućnost čitanja blogova koje pišu stručnjaci, te dobijanja informacija koje se tiču Vaše lokalne zajednice, " +
             "a tiču se Prve pomoći i Crvenog križa." ,
-        image: image1,
-        //image: 'https://media.istockphoto.com/id/165632100/vector/medical-frame.jpg?s=612x612&w=0&k=20&c=1KBd83_uXpqzlIgEQ9f5Jis6-CA0aZ0fvKmUfykFzYA=',
+        //image: image1,
+        image: 'https://media.istockphoto.com/id/165632100/vector/medical-frame.jpg?s=612x612&w=0&k=20&c=1KBd83_uXpqzlIgEQ9f5Jis6-CA0aZ0fvKmUfykFzYA=',
         imageText: 'main image description',
         //linkText: 'Nastavite čitati…',
     };

@@ -8,9 +8,7 @@ import ListOfLessons from "./registeredUser/ListOfLessons";
 import Header from "./registeredUser/Header";
 import AllLessons from "./registeredUser/AllLessons";
 import Blogs from "./registeredUser/Blogs";
-
-
-
+import Profile from "./registeredUser/Profile";
 
 function App() {
 
@@ -59,6 +57,7 @@ function App() {
           <Routes>
               <Route path="/" element={<WelcomePage/>}/>
               <Route path="/Logo" element={<WelcomePage/>}/>
+              <Route path="/Profil" element={<Profile/>}/>
               <Route path="/Blog" element={<Blogs/>}/>
               <Route path="/Lekcije" element={<AllLessons/>}/>
               <Route path="/Lekcija/1" element={<Lesson1/>}/>
