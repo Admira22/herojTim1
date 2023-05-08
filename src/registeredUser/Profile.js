@@ -10,6 +10,7 @@ import {TableCell} from "@mui/material";
 import Button from "@mui/material/Button";
 import Typography from '@mui/material/Typography';
 import  Progres from "./Progres";
+import Footer from "./Footer";
 
 
 function kreirajPodatke(podatak1,podatak2){
@@ -83,12 +84,12 @@ function Profile(){
                 </Grid>
                 <Grid item xs={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
                     {/*Ovdje jos treba dodat kad se smanji full da se odvoji*/}
-                        <Typography variant={"h4"} sx={{ mb: 2 }}>
-                            MOJ PROGRES
-                        </Typography>
+                    <Typography variant={"h4"} sx={{ mb: 2 }}>
+                        MOJ PROGRES
+                    </Typography>
                         <br/>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '25vh' }}>
-                        <Progres progress={70} />
+                        <Progres progress={60} />
                     </div>
                     <Grid container spacing={3} direction="column" alignItems="left">
                         <Grid item>
@@ -101,6 +102,7 @@ function Profile(){
 
                 </Grid>
             </Grid>
+            <Footer/>
         </React.Fragment>
 
     );
