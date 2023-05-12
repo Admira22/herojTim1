@@ -11,7 +11,6 @@ function Header(props) {
     return (
         <React.Fragment>
             <Toolbar  component="nav" variant="regular" sx={{justifyContent: 'space-between', overflowX: 'auto',backgroundColor: '#931621' }} >
-
                 {titles.map((titles) =>(
                     //     <Button className={"titles"}>{titles}</Button>
                     <Link color="#ffebee"
@@ -19,7 +18,8 @@ function Header(props) {
                         // key={title}
                           variant="body1"
                         // href = {'/blog'}
-                          href={titles}
+                          //href={titles}
+                          href={`/${titles}`}
                           sx={{ p: 1, flexShrink: 0}}> {titles} </Link>
                 ))}
                 <IconButton>

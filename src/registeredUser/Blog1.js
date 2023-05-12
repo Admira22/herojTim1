@@ -15,6 +15,9 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import axios from "axios";
 import {useState, useEffect} from "react";
 import {styled} from "@mui/material/styles";
+import Link from "@mui/material/Link";
+import Button from "@mui/material/Button";
+
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -88,6 +91,9 @@ export default function Blogovi() {
                     <Collapse in={expanded === index} timeout="auto" unmountOnExit>
                         <CardContent>
                             <Typography paragraph>{blog.sadrzaj}</Typography>
+                            <Link href={`/Blog/${blog.id}`}>
+                                <Button>PROČITAJ VIŠE</Button>
+                            </Link>
                         </CardContent>
                     </Collapse>
                 </Card>

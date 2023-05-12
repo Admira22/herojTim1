@@ -59,6 +59,7 @@ function App() {
               <Route path="/Logo" element={<WelcomePage/>}/>
               <Route path="/Profil" element={<Profile/>}/>
               <Route path="/Blog" element={<Blogs/>}/>
+              <Route path="/Blog/:id" element={<Blog/>}/>
               <Route path="/Lekcije" element={<AllLessons/>}/>
               <Route path="/Lekcija/1" element={<Lesson1/>}/>
           </Routes>
