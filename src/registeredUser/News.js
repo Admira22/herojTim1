@@ -14,7 +14,8 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import redCross from '../images/redCross.png';
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
@@ -25,18 +26,32 @@ const ExpandMore = styled((props) => {
     transition: theme.transitions.create('transform', {
         duration: theme.transitions.duration.shortest,
     }),
-
 }));
 
-export default function News() {
+export default function News(props) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
+    const url = 'http://127.0.0.1:8000/';
+    const [obavjesti, setObavjesti] = useState([]);
+
+    async function fetchNews() {
+        const response = await axios.get(`${url}obavjest/`);
+        console.log(response.data);
+        setObavjesti(response.data);
+    }
+
+    useEffect(() => {
+        fetchNews();
+    }, []);
+
     return (
-        <Card sx={{ maxWidth: 550,marginLeft: 10 }}>
+        <>
+            {obavjesti.map((obavjesti) => (
+        <Card sx={{ maxWidth: 1000, marginLeft: 10, marginBottom:5}}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -48,18 +63,18 @@ export default function News() {
                         <MoreVertIcon />
                     </IconButton>
                 }
-                title="Obavjest o nečemu"
-                subheader="26.4.2023"
+                title={obavjesti.title}
+                //subheader="September 14, 2016"
             />
             <CardMedia
                 component="img"
                 height="194"
-                image={redCross}
-                alt="image"
+                image={obavjesti.image}
+                alt="Paella dish"
             />
             <CardContent>
                 <Typography variant="body2" color="text.secondary">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    {obavjesti.description}
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
@@ -82,11 +97,13 @@ export default function News() {
                 <CardContent>
                     <Typography paragraph>Detalji:</Typography>
                     <Typography paragraph>
-                        Heat 1/2 cup of the broth in a pot until simmering, add saffron and set
-                        aside for 10 minutes.
+                        {obavjesti.text}
                     </Typography>
                 </CardContent>
             </Collapse>
         </Card>
+            ))}
+        </>
     );
 }
+

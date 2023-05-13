@@ -8,14 +8,13 @@ import Footer from "./Footer";
 import News from "./News";
 import Help from "./Help";
 import Grid from "@mui/material/Grid";
+import myLogo from "../images/myLogo.png";
 
 function WelcomePage() {
     const titles = ["Logo","Lekcije", "Profil", "Blog", "Završni test" ,"ODJAVI SE"];
-
     return(
         <React.Fragment>
             <Toolbar  component="nav" variant="regular" sx={{justifyContent: 'space-between', overflowX: 'auto',backgroundColor: '#931621' }} >
-
                 {titles.map((titles) =>(
                     //     <Button className={"titles"}>{titles}</Button>
                     <Link color="#ffebee"
@@ -36,10 +35,7 @@ function WelcomePage() {
             </Toolbar>
             <Info/>
             <Grid container spacing={5}>
-                <Grid item xs={4}>
-                    <News/>
-                </Grid>
-                <Grid item xs={4}>
+                <Grid item xs={8}>
                     <News/>
                 </Grid>
                 <Grid item xs={4}>

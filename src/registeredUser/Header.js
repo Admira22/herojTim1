@@ -4,8 +4,7 @@ import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Link from '@mui/material/Link';
 
-function Header(props) {
-    //const { sections, title } = props;
+function Header() {
     const titles = ["Logo","Lekcije", "Profil", "Blog", "Završni test" ,"ODJAVI SE"];
 
     return (
@@ -13,7 +12,6 @@ function Header(props) {
             <Toolbar  component="nav" variant="regular" sx={{justifyContent: 'space-between', overflowX: 'auto',backgroundColor: '#931621' }} >
 
                 {titles.map((titles) =>(
-                    //     <Button className={"titles"}>{titles}</Button>
                     <Link color="#ffebee"
                           noWrap
                         // key={title}
@@ -33,15 +31,5 @@ function Header(props) {
         </React.Fragment>
     );
 }
-
-// Header.propTypes = {
-//     sections: PropTypes.arrayOf(
-//         PropTypes.shape({
-//             title: PropTypes.string.isRequired,
-//             url: PropTypes.string.isRequired,
-//         }),
-//     ).isRequired,
-//     title: PropTypes.string.isRequired,
-// };
 
 export default Header;

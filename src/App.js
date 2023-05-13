@@ -60,7 +60,7 @@ function App() {
               <Route path="/Profil" element={<Profile/>}/>
               <Route path="/Blog" element={<Blogs/>}/>
               <Route path="/Lekcije" element={<AllLessons/>}/>
-              <Route path="/Lekcija/1" element={<Lesson1/>}/>
+              <Route path="/Lekcija/:id" element={<Lesson1/>}/>
           </Routes>
       </BrowserRouter>
       {/*  <button onClick={callPostMethod}>post metod</button>*/}

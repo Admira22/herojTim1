@@ -8,6 +8,8 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Link from "@mui/material/Link";
+import {useEffect, useState} from "react";
+import axios from "axios";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -29,19 +31,19 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
     },
 }));
 
-function createData(number, name, questions, video) {
-    return { number, name, questions, video };
-}
+function ListOfLessons(props) {
+    const url = 'http://127.0.0.1:8000/'
+    const [lekcija, setLekcija] = useState([])
 
-const rows = [
-    createData('Lekcija 1', 'Uvod u prvu pomoć', 'pitanja1', 'video1'),
-    createData('Lekcija 2', 'ime2', 'pitanja2', 'video2'),
-    createData('Lekcija 3', 'ime3', 'pitanja3', 'video3'),
-    createData('Lekcija 4', 'ime4', 'pitanja4', 'video4'),
-    createData('Lekcija 5', 'ime5', 'pitanja5', 'video5'),
-];
+    async function fetchLesson(){
+        const response =  await axios.get(`${url}lekcije/`)
+        console.log(response.data)
+        setLekcija(response.data)
+    }
 
-function ListOfLessons() {
+    useEffect(() => {
+        fetchLesson()
+    }, [])
     return (
         <TableContainer component={Paper}>
             <Table sx={{marginLeft: 10, minWidth: 600, maxWidth: 900}} aria-label="customized table">
@@ -54,18 +56,26 @@ function ListOfLessons() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {rows.map((row) => (
-                        <StyledTableRow key={row.number}>
+                    {lekcija.map((lekcija) => (
+                        <StyledTableRow key={lekcija.id}>
                             <StyledTableCell component="th" scope="row">
-                                {row.number}
+                                {lekcija.id}
                             </StyledTableCell>
                             <StyledTableCell align="right">
-                                <Link href="/Lekcija1" color="#b71c1c">
-                                   {row.name}
+                                <Link href={`/Lekcija/${lekcija.id}`} color="#b71c1c">
+                                   {lekcija.title}
                                 </Link>
                             </StyledTableCell>
-                            <StyledTableCell align="right">{row.video}</StyledTableCell>
-                            <StyledTableCell align="right">{row.questions}</StyledTableCell>
+                            <StyledTableCell align="right">
+                               <Link href={lekcija.video}>
+                                   Link
+                               </Link>
+                            </StyledTableCell>
+                            <StyledTableCell align="right">
+                                <Link href={lekcija.video}>
+                                    Pitanja
+                                </Link>
+                            </StyledTableCell>
                         </StyledTableRow>
                     ))}
                 </TableBody>
