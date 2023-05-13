@@ -2,13 +2,17 @@ import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import Images from '../registeredUser/Images';
 import Link from "@mui/material/Link";
 import axios from "axios";
 import {useEffect, useState} from "react";
+import {useParams} from "react-router";
+import Header from "./Header";
+import Info from "./Info";
+import Footer from "./Footer";
+import Button from "@mui/material/Button";
 
 
-function Lesson1(){
+function Lesson1(props){
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         ...theme.typography.body1,
@@ -40,11 +44,18 @@ function Lesson1(){
     }));
     const url = 'http://127.0.0.1:8000/'
 
-    const [lesson, setLessons] = useState([])
+    const [lekcija, setLekcija] = useState([])
+
+    const { id } = useParams()
+
+
     async function fetchLesson(){
-       const response =  await axios.get(`${url}Lekcija1`)
+        const response =  await axios.get(`${url}lekcija/${id}/`)
+        console.log(`${url}lekcija/${id}`)
         console.log(response.data)
-        setLessons(response.data)
+        setLekcija(response.data[0])
+        console.log('HEJ')
+
     }
 
     useEffect(()=>{
@@ -52,46 +63,40 @@ function Lesson1(){
     },[])
 
     return(
-        <Grid container spacing={5}>
-            {
-                lesson.map(lesson =>(
+        <React.Fragment>
+            <Header/>
+            <Info/>
+        <Grid container spacing={1}>
                     <Grid item xs={12}>
-                        <H1 key={lesson.id}>{lesson.title}</H1>
+                        <H1 key={lekcija.id}>{lekcija.title}</H1>
                     </Grid>
-                ))
-            }
-            {
-                lesson.map(lesson =>(
+
                     <Grid item xs={6}>
-                        <H2>podnaslov1</H2>
-                        <Item>{lesson.part1}</Item>
+                        <H2>{lekcija.subtitle1}</H2>
+                        <Item>{lekcija.part1}</Item>
                     </Grid>
-                ))
-            }
-            {
-                lesson.map(lesson =>(
+
                     <Grid item xs={6}>
-                        <H2>podnaslov2</H2>
-                        <Item>{lesson.part2}</Item>
+                        <H2>{lekcija.subtitle2}</H2>
+                        <Item>{lekcija.part2}</Item>
                     </Grid>
-                ))
-            }
-            {
-                lesson.map(lesson =>(
                     <Grid item xs={6}>
-                        <H2>podnaslov3</H2>
+                        <H2>{lekcija.subtitle3}</H2>
                         <Item>
                             <UL>
-                                <li>{lesson.part3}</li>
+                                <li>{lekcija.part3}</li>
                             </UL>
                         </Item>
                     </Grid>
-                ))
-            }
             <Grid item xs={6}>
                 <H2>SLIKE</H2>
-                <Item>
-                    <Images/>
+                <Item style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                    <img
+                        src={lekcija.image}
+                        alt='slika'
+                        height={390}
+                        loading="lazy"
+                    />
                 </Item>
             </Grid>
             <Grid item xs={6}>
@@ -100,7 +105,7 @@ function Lesson1(){
                     Na sljedećem linku nalazi se video, vezan za prvu lekciju o prvoj pomoći.
                     Preporučujemo Vam da pogledate.
                     <br/>
-                    <Link href="https://www.youtube.com/watch?v=jfkv9v-qDYE" color="#b71c1c">
+                    <Link href={lekcija.video} color="#b71c1c">
                         {'Video'}
                     </Link>
                 </Item>
@@ -115,7 +120,12 @@ function Lesson1(){
                     </Link>
                 </Item>
             </Grid>
+            <Grid item xs={12} style={{ display: 'flex', justifyContent: 'right', alignItems: 'right', marginRight: '10px' }}>
+                   <Button variant="contained">Završena lekcija -></Button>
+            </Grid>
         </Grid>
+            <Footer/>
+        </React.Fragment>
     )
 }
 export default Lesson1;

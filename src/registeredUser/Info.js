@@ -8,7 +8,6 @@ import Box from '@mui/material/Box';
 import image1 from '../images/image1.png';
 
 function Info(props) {
-    //const { post } = props;
     const Info = {
         title: 'HEROJ',
         description:
@@ -34,7 +33,6 @@ function Info(props) {
                 backgroundImage: `url(${Info.image})`,
             }}
         >
-            {/* Increase the priority of the hero background image */}
             {<img style={{ display: 'none' }} src={Info.image} alt={Info.imageText} />}
             <Box
                 sx={{

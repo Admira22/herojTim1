@@ -1,8 +1,9 @@
-import help2 from '../images/help2.png';
+import help from '../images/help.png';
+import '../css/main.css'
 function Help(){
     return(
         <div>
-            <img src={help2} alt={"help"}  width={300} height={400} className={'align-right'}/>
+            <img src={help} alt={"help"}  width={300} height={400} className={'align-right'}/>
         </div>
     )
 }
