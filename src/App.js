@@ -9,6 +9,8 @@ import Header from "./registeredUser/Header";
 import AllLessons from "./registeredUser/AllLessons";
 import Blogs from "./registeredUser/Blogs";
 import Profile from "./registeredUser/Profile";
+import ListOfQuestions from "./registeredUser/ListOfQuestions";
+import Questions from "./registeredUser/Questions";
 
 function App() {
 
@@ -62,6 +64,7 @@ function App() {
               <Route path="/Blog/:id" element={<Blog/>}/>
               <Route path="/Lekcije" element={<AllLessons/>}/>
               <Route path="/Lekcija/:id" element={<Lesson1/>}/>
+              <Route path="/pitanja/:id" element={<Questions/>}/>
           </Routes>
       </BrowserRouter>
       {/*  <button onClick={callPostMethod}>post metod</button>*/}
