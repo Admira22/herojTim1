@@ -11,6 +11,8 @@ import Blogs from "./registeredUser/Blogs";
 import Profile from "./registeredUser/Profile";
 import ListOfQuestions from "./registeredUser/ListOfQuestions";
 import Questions from "./registeredUser/Questions";
+import SignUp from "./login/SignUp";
+import SignIn from "./login/SignIn";
 
 function App() {
 
@@ -57,7 +59,9 @@ function App() {
       <CssBaseline/>
       <BrowserRouter>
           <Routes>
-              <Route path="/" element={<WelcomePage/>}/>
+              <Route path="/" element={<SignIn/>}/>
+              <Route path="/signUp" element={<SignUp/>}/>
+              <Route path="/signIn" element={<SignIn/>}/>
               <Route path="/Logo" element={<WelcomePage/>}/>
               <Route path="/Profil" element={<Profile/>}/>
               <Route path="/Blog" element={<Blogs/>}/>
