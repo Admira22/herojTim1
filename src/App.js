@@ -1,18 +1,18 @@
 import './App.css';
 import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import WelcomePage from "./registeredUser/WelcomePage";
 import Blog from "./registeredUser/Blog";
 import Lesson1 from "./registeredUser/Lesson1";
-import ListOfLessons from "./registeredUser/ListOfLessons";
-import Header from "./registeredUser/Header";
 import AllLessons from "./registeredUser/AllLessons";
 import Blogs from "./registeredUser/Blogs";
 import Profile from "./registeredUser/Profile";
-import ListOfQuestions from "./registeredUser/ListOfQuestions";
 import Questions from "./registeredUser/Questions";
 import SignUp from "./login/SignUp";
 import SignIn from "./login/SignIn";
+import AuthContext,{AuthProvider} from "../src/context/AuthContext";
+import {useContext} from "react";
+import Header from "./registeredUser/Header";
 
 function App() {
 
@@ -34,46 +34,40 @@ function App() {
 
   });
 
-  // function callPostMethod(){
-  //     axios.post("http://127.0.0.1:8000/", {
-  //         firstName: 'Ime',
-  //         lastName: 'Prezime'
-  //     }).then(
-  //         (response) =>{
-  //         console.log(response)
-  //     },
-  //         (error) => {
-  //             console.log(error)
-  //         }
-  //         )
-  // }
-  // function getListaPitanja(){
-  //     axios.get('http://127.0.0.1:8000/pitanja/')
-  //         .then(r =>{
-  //             console.log(r)
-  //         })
-  // }
 
-  return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline/>
-      <BrowserRouter>
-          <Routes>
-              <Route path="/" element={<SignIn/>}/>
-              <Route path="/signUp" element={<SignUp/>}/>
-              <Route path="/signIn" element={<SignIn/>}/>
-              <Route path="/Logo" element={<WelcomePage/>}/>
-              <Route path="/Profil" element={<Profile/>}/>
-              <Route path="/Blog" element={<Blogs/>}/>
-              <Route path="/Blog/:id" element={<Blog/>}/>
-              <Route path="/Lekcije" element={<AllLessons/>}/>
-              <Route path="/Lekcija/:id" element={<Lesson1/>}/>
-              <Route path="/pitanja/:id" element={<Questions/>}/>
-          </Routes>
-      </BrowserRouter>
-      {/*  <button onClick={callPostMethod}>post metod</button>*/}
-      {/*  <button onClick={getListaPitanja}>get method</button>*/}
-    </ThemeProvider>
+    let user = useContext(AuthContext)
+    return (
+      <div className="App">
+          <ThemeProvider theme={theme}>
+              <CssBaseline/>
+              <BrowserRouter>
+                  <AuthProvider>
+                  <Routes>
+                     {/* <Route
+                          path="/"
+                          element={
+                              user ? (
+                                  <Navigate to="/login" />
+                              ) : (
+                                  <SignIn />
+                              )
+                          }
+                      />*/}
+                      <Route path="/" element={<SignIn/>} />
+                         <Route path="/signUp" element={<SignUp />} />
+                         <Route path="/login" element={<SignIn />} />
+                          <Route path="/Logo" element={<WelcomePage />} />
+                          <Route path="/Profil" element={<Profile />} />
+                          <Route path="/Blog" element={<Blogs />} />
+                          <Route path="/Blog/:id" element={<Blog />} />
+                          <Route path="/Lekcije" element={<AllLessons />} />
+                          <Route path="/Lekcija/:id" element={<Lesson1 />} />
+                          <Route path="/pitanja/:id" element={<Questions />} />
+                  </Routes>
+                  </AuthProvider>
+              </BrowserRouter>
+            </ThemeProvider>
+      </div>
   );
 }
 

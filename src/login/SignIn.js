@@ -12,19 +12,29 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Footer from "../registeredUser/Footer";
+import {useContext} from "react";
+import AuthContext from "../context/AuthContext";
 
 
 export default function SignIn() {
-    const handleSubmit = (event) => {
+    let {loginUser} = useContext(AuthContext)
+  /*  const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
             email: data.get('email'),
             password: data.get('password'),
         });
-    };
+    };*/
 
     return (
+        /*<div>
+            <form onSubmit={loginUser}>
+                <input type="text" name="username" placeholder="unesite username"/>
+                <input type="password" name="password" placeholder="unesite lozinku"/>
+                <input type="submit"/>
+            </form>
+        </div>*/
             <Container component="main" maxWidth="xs">
                 <CssBaseline />
                 <Box
@@ -41,14 +51,14 @@ export default function SignIn() {
                     <Typography component="h1" variant="h5">
                         Prijavi se
                     </Typography>
-                    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+                    <Box component="form" onSubmit={loginUser} noValidate sx={{ mt: 1 }}>
                         <TextField
                             margin="normal"
                             required
                             fullWidth
-                            id="email"
-                            label="Email adresa"
-                            name="email"
+                            id="username"
+                            label="Korisnicko ime"
+                            name="username"
                             autoComplete="email"
                             autoFocus
                         />
@@ -62,10 +72,7 @@ export default function SignIn() {
                             id="password"
                             autoComplete="current-password"
                         />
-                        <FormControlLabel
-                            control={<Checkbox value="remember" color="primary" />}
-                            label="Remember me"
-                        />
+
                         <Button
                             type="submit"
                             fullWidth

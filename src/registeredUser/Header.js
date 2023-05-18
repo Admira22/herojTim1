@@ -3,9 +3,13 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import SearchIcon from '@mui/icons-material/Search';
 import Link from '@mui/material/Link';
+import Button from "@mui/material/Button";
+import {useContext} from "react";
+import AuthContext from "../context/AuthContext";
 
 function Header() {
-    const titles = ["Logo","Lekcije", "Profil", "Blog", "Završni test" ,"ODJAVI SE"];
+    let {user,logoutUser} = useContext(AuthContext)
+    const titles = ["Logo","Lekcije", "Profil", "Blog", "Završni test"];
 
     return (
         <React.Fragment>
@@ -13,13 +17,18 @@ function Header() {
                 {titles.map((titles) =>(
                     <Link color="#ffebee"
                           noWrap
-                        // key={title}
+                          // key={title}
                           variant="body1"
-                        // href = {'/blog'}
+                          // href = {'/blog'}
                           //href={titles}
                           href={`/${titles}`}
                           sx={{ p: 1, flexShrink: 0}}> {titles} </Link>
                 ))}
+                {user ? (
+                    <Button onClick={logoutUser} style={{ color: 'white' }}>odjavi se</Button>
+                ):(
+                    <Link to="/login"></Link>
+                )}
                 <IconButton>
                     <SearchIcon  color="primary"
                                  fontSize="large"

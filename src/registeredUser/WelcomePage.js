@@ -1,40 +1,61 @@
 import * as React from "react";
 import Info from "./Info";
-import Toolbar from "@mui/material/Toolbar";
-import Link from "@mui/material/Link";
-import IconButton from "@mui/material/IconButton";
-import SearchIcon from "@mui/icons-material/Search";
 import Footer from "./Footer";
 import News from "./News";
 import Help from "./Help";
 import Grid from "@mui/material/Grid";
-import myLogo from "../images/myLogo.png";
+import {useContext, useEffect, useState} from "react";
+import AuthContext from "../context/AuthContext";
+import Header from "./Header";
+import {styled} from "@mui/material/styles";
+
 
 function WelcomePage() {
-    const titles = ["Logo","Lekcije", "Profil", "Blog", "Završni test" ,"ODJAVI SE"];
+    const H1 = styled("h1")(({theme}) =>({
+        backgroundColor: theme.palette.primary,
+        ...theme.typography.h4,
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        color: theme.palette.secondary.dark
+    }));
+    let {authTokens, logoutUser} = useContext(AuthContext)
+    let [profile, setProfile] = useState([])
+
+    const url = 'http://127.0.0.1:8000/'
+
+   useEffect(()=> {
+        getNotes()
+    }, [])
+
+    let getNotes = async() =>{
+        let response = await fetch(`${url}profile/`, {
+            method:'GET',
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':'Bearer ' + String(authTokens.access)
+            }
+        })
+        let data = await response.json()
+        console.log(data)
+
+        if(response.status === 200){
+            setProfile(data)
+        }else if(response.statusText === 'Unauthorized'){
+            logoutUser()
+        }
+
+    }
+
     return(
         <React.Fragment>
-            <Toolbar  component="nav" variant="regular" sx={{justifyContent: 'space-between', overflowX: 'auto',backgroundColor: '#931621' }} >
-                {titles.map((titles) =>(
-                    //     <Button className={"titles"}>{titles}</Button>
-                    <Link color="#ffebee"
-                          noWrap
-                        // key={title}
-                          variant="body1"
-                        // href = {'/blog'}
-                          href={titles}
-                          sx={{ p: 1, flexShrink: 0}}> {titles} </Link>
-                ))}
-                <IconButton>
-                    <SearchIcon  color="primary"
-                                 fontSize="large"
-                                 onClick={() => console.log('Clicked search icon!')}
-                                 className="my-search-icon"
-                                 style={{ marginRight: '10px' }}/> <input type="text" placeholder="Pretraži..." />
-                </IconButton>
-            </Toolbar>
+            <Header/>
             <Info/>
             <Grid container spacing={5}>
+                <Grid item xs={12}>
+                   {/*{user && <H1>Zdravo, {user.username}! </H1>}*/}
+                            <H1 key={profile.id} > Zdravo, {profile.firstName}!</H1>
+
+                </Grid>
                 <Grid item xs={8}>
                     <News/>
                 </Grid>

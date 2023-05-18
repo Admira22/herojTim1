@@ -7,23 +7,14 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import {TableCell} from "@mui/material";
-import Button from "@mui/material/Button";
 import Typography from '@mui/material/Typography';
 import  Progres from "./Progres";
 import Footer from "./Footer";
 import Info from "./Info";
+import {useContext, useEffect, useState} from "react";
+import AuthContext from "../context/AuthContext";
 
 
-function kreirajPodatke(podatak1,podatak2){
-    return {podatak1,podatak2};
-}
-const rows = [
-    kreirajPodatke("Ime","Sara"),
-    kreirajPodatke("Prezime","Jerinić"),
-    kreirajPodatke("E-mail","sara54jerinic@gmail.com"),
-    kreirajPodatke("Lokalna zajednica","Novo Sarajevo"),
-    kreirajPodatke("Dijete",'Ne')
-];
 function Circle({ color, text }) {
     const circleStyle = {
         borderRadius: '50%',
@@ -39,7 +30,35 @@ function Circle({ color, text }) {
         </div>
     );
 }
+
 function Profile(){
+    let {authTokens, logoutUser} = useContext(AuthContext)
+    let [profile, setProfile] = useState([])
+
+    const url = 'http://127.0.0.1:8000/'
+
+    useEffect(()=> {
+        getNotes()
+    }, [])
+
+    let getNotes = async() =>{
+        let response = await fetch(`${url}profile/`, {
+            method:'GET',
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':'Bearer ' + String(authTokens.access)
+            }
+        })
+        let data = await response.json()
+        console.log(data)
+
+        if(response.status === 200){
+            setProfile(data)
+        }else if(response.statusText === 'Unauthorized'){
+            logoutUser()
+        }
+
+    }
     return(
         <React.Fragment>
             <Header/>
@@ -48,8 +67,7 @@ function Profile(){
                 <Grid item md={8}>
                     <TableContainer>
                         <Table
-                            sx={{marginLeft:5,width:"90%"}}
-                        >
+                            sx={{marginLeft:5,width:"90%"}}>
                             <TableHead>
                                 <TableRow>
                                     <TableCell align={"center"} style={{backgroundColor:"#931621",color:"white"}} colSpan={2}>
@@ -59,27 +77,71 @@ function Profile(){
                                     </TableCell>
                                 </TableRow>
                             </TableHead>
-                            <TableBody
-                                sx={{backgroundColor:"whitesmoke"}}
-                            >
-                                {rows.map((row) => (
-                                    <TableRow key={row.podatak1}>
+                            <TableBody sx={{backgroundColor:"whitesmoke"}}>
+                                    <TableRow key={profile.id}>
                                         <TableCell component="th" scope="row" align={"right"}>
                                             <Typography fontWeight={"bold"} fontSize={18}>
-                                                {row.podatak1}
+                                               Ime
                                             </Typography>
                                         </TableCell>
                                         <TableCell align="left">
                                             <Typography fontSize={18}>
-                                                {row.podatak2}
+                                                {profile.firstName}
                                             </Typography>
                                         </TableCell>
                                     </TableRow>
-                                ))}
+                                <TableRow key={profile.id}>
+                                    <TableCell component="th" scope="row" align={"right"}>
+                                        <Typography fontWeight={"bold"} fontSize={18}>
+                                            Prezime
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell align="left">
+                                        <Typography fontSize={18}>
+                                            {profile.lastName}
+                                        </Typography>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key={profile.id}>
+                                    <TableCell component="th" scope="row" align={"right"}>
+                                        <Typography fontWeight={"bold"} fontSize={18}>
+                                            Email
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell align="left">
+                                        <Typography fontSize={18}>
+                                            {profile.email}
+                                        </Typography>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key={profile.id}>
+                                    <TableCell component="th" scope="row" align={"right"}>
+                                        <Typography fontWeight={"bold"} fontSize={18}>
+                                            Lokalna zajednica
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell align="left">
+                                        <Typography fontSize={18}>
+                                            {profile.lc}
+                                        </Typography>
+                                    </TableCell>
+                                </TableRow>
+                                <TableRow key={profile.id}>
+                                    <TableCell component="th" scope="row" align={"right"}>
+                                        <Typography fontWeight={"bold"} fontSize={18}>
+                                            Dijete
+                                        </Typography>
+                                    </TableCell>
+                                    <TableCell align="left">
+                                        <Typography fontSize={18}>
+                                            {profile.child}
+                                        </Typography>
+                                    </TableCell>
+                                </TableRow>
                             </TableBody>
                         </Table>
                     </TableContainer>
-                  {/*  <Button variant="contained" color="success" size={"large"}
+                  {/* <Button variant="contained" color="success" size={"large"}
                             Ovdje treba dodat marginu ili makar izravnat dugme sa tabelom
                             sx={{marginBlockStart:3,marginBlockEnd:3}}>UREDI
                     </Button>*/}
@@ -91,7 +153,7 @@ function Profile(){
                     </Typography>
                         <br/>
                     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: '25vh' }}>
-                        <Progres progress={60} />
+                        <Progres progress={profile.progres} />
                     </div>
                     <Grid container spacing={3} direction="column" alignItems="left">
                         <Grid item>
