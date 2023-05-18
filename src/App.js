@@ -8,11 +8,13 @@ import ListOfLessons from "./registeredUser/ListOfLessons";
 import Header from "./registeredUser/Header";
 import AllLessons from "./registeredUser/AllLessons";
 import Blogs from "./registeredUser/Blogs";
-
-
+import Home from "./unregisteredUser/Home";
+import HeartAttack from "./unregisteredUser/HeartAttack";
+import ProblemsPage from "./unregisteredUser/ProblemsPage";
 
 
 function App() {
+
 
   const theme = createTheme({
       palette:{
@@ -57,17 +59,22 @@ function App() {
       <CssBaseline/>
       <BrowserRouter>
           <Routes>
-              <Route path="/" element={<WelcomePage/>}/>
+              <Route path="/" element={<Home/>}/>
+              <Route path="/:problem" element={<ProblemsPage/>}/>
               <Route path="/Logo" element={<WelcomePage/>}/>
               <Route path="/Blog" element={<Blogs/>}/>
               <Route path="/Lekcije" element={<AllLessons/>}/>
               <Route path="/Lekcija/1" element={<Lesson1/>}/>
+              <Route path="/HeartAttack" element={<HeartAttack/>}/>
           </Routes>
       </BrowserRouter>
       {/*  <button onClick={callPostMethod}>post metod</button>*/}
       {/*  <button onClick={getListaPitanja}>get method</button>*/}
     </ThemeProvider>
+
   );
+
+
 }
 
 export default App;

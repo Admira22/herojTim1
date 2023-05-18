@@ -1,0 +1,43 @@
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: brown;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-left: 50%;
+
+}
+#plavi {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #0077b6;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    text-align: center;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    margin-left: 50%;
+
+}
+#tekst {
+    margin-left: 50%;
+}
+button:hover {
+    background-color: #CC0000;
+}
+
+@media screen and (max-width: 768px) {
+    .button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+}
