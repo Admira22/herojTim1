@@ -28,7 +28,7 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function News(props) {
+export default function News() {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
@@ -51,7 +51,7 @@ export default function News(props) {
     return (
         <>
             {obavjesti.map((obavjesti) => (
-        <Card sx={{ maxWidth: 1000, marginLeft: 10, marginBottom:5}}>
+        <Card key={obavjesti.id} sx={{ maxWidth: 1000, marginLeft: 10, marginBottom:5}}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
