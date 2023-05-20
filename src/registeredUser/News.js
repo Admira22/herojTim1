@@ -31,8 +31,8 @@ const ExpandMore = styled((props) => {
 export default function News() {
     const [expanded, setExpanded] = React.useState(false);
 
-    const handleExpandClick = () => {
-        setExpanded(!expanded);
+    const handleExpandClick = (index) => {
+        setExpanded(expanded === index ? -1 : index);
     };
 
     const url = 'http://127.0.0.1:8000/';
@@ -50,59 +50,59 @@ export default function News() {
 
     return (
         <>
-            {obavjesti.map((obavjesti) => (
-        <Card key={obavjesti.id} sx={{ maxWidth: 1000, marginLeft: 10, marginBottom:5}}>
-            <CardHeader
-                avatar={
-                    <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-                        A
-                    </Avatar>
-                }
-                action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
-                    </IconButton>
-                }
-                title={obavjesti.title}
-                //subheader="September 14, 2016"
-            />
-            <CardMedia
-                component="img"
-                height="194"
-                image={obavjesti.image}
-                alt="Paella dish"
-            />
-            <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                    {obavjesti.description}
-                </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
-                <ExpandMore
-                    expand={expanded}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon />
-                </ExpandMore>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
+            {obavjesti.map((obavjesti,index) => (
+                <Card key={obavjesti.id} sx={{ maxWidth: 1000, marginLeft: 10, marginBottom:5}}>
+                    <CardHeader
+                        avatar={
+                            <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
+                                A
+                            </Avatar>
+                    }
+                        action={
+                        <IconButton aria-label="settings">
+                            <MoreVertIcon />
+                        </IconButton>
+                    }
+                    title={obavjesti.title}
+                    //subheader="September 14, 2016"
+                />
+                <CardMedia
+                    component="img"
+                    height="194"
+                    image={obavjesti.image}
+                    alt="Paella dish"
+                />
                 <CardContent>
-                    <Typography paragraph>Detalji:</Typography>
-                    <Typography paragraph>
-                        {obavjesti.text}
+                    <Typography variant="body2" color="text.secondary">
+                        {obavjesti.description}
                     </Typography>
                 </CardContent>
-            </Collapse>
-        </Card>
-            ))}
+                <CardActions disableSpacing>
+                    <IconButton aria-label="add to favorites">
+                        <FavoriteIcon />
+                    </IconButton>
+                    <IconButton aria-label="share">
+                        <ShareIcon />
+                    </IconButton>
+                    <ExpandMore
+                        expand={expanded}
+                        onClick={() => handleExpandClick(index)}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon />
+                    </ExpandMore>
+                </CardActions>
+                <Collapse in={expanded === index} timeout="auto" unmountOnExit>
+                    <CardContent>
+                        <Typography paragraph>Detalji:</Typography>
+                        <Typography paragraph>
+                            {obavjesti.text}
+                        </Typography>
+                    </CardContent>
+                </Collapse>
+            </Card>
+                ))}
         </>
     );
 }
