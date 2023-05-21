@@ -21,7 +21,8 @@ function Header() {
                           variant="body1"
                           // href = {'/blog'}
                           //href={titles}
-                          href={`/${titles}`}
+                          //href={`/${titles}`}
+                          href={titles=== "Završni test" ? '/Test' : `/${titles}`}
                           sx={{ p: 1, flexShrink: 0}}> {titles} </Link>
                 ))}
                 {user ? (

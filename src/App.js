@@ -13,6 +13,7 @@ import SignIn from "./login/SignIn";
 import AuthContext,{AuthProvider} from "../src/context/AuthContext";
 import {useContext} from "react";
 import Header from "./registeredUser/Header";
+import Test from "./registeredUser/Test";
 
 function App() {
 
@@ -63,6 +64,7 @@ function App() {
                           <Route path="/Lekcije" element={<AllLessons />} />
                           <Route path="/Lekcija/:id" element={<Lesson1 />} />
                           <Route path="/pitanja/:id" element={<Questions />} />
+                          <Route path="/Test" element={<Test/>}/>
                   </Routes>
                   </AuthProvider>
               </BrowserRouter>
