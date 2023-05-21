@@ -29,7 +29,7 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function News() {
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = useState(-1);
 
     const handleExpandClick = (index) => {
         setExpanded(expanded === index ? -1 : index);
@@ -85,7 +85,7 @@ export default function News() {
                         <ShareIcon />
                     </IconButton>
                     <ExpandMore
-                        expand={expanded}
+                        expand={expanded!==-1}
                         onClick={() => handleExpandClick(index)}
                         aria-expanded={expanded}
                         aria-label="show more"
