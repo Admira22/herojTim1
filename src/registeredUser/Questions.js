@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Info from "./Info";
-import ListOfQuestions from "./ListOfQuestions";
+import QA from "./QA";
 import Footer from "./Footer";
 
 function Questions(){
@@ -8,7 +8,7 @@ function Questions(){
         <>
             <Header/>
             <Info/>
-            <ListOfQuestions/>
+            <QA/>
             <Footer/>
 
         </>
