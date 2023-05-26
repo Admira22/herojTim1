@@ -10,7 +10,7 @@ import Header from "./Header";
 import Info from "./Info";
 import Footer from "./Footer";
 import Button from "@mui/material/Button";
-
+import ReactPlayer from 'react-player'
 
 function Lesson1(props){
     const Item = styled(Paper)(({ theme }) => ({
@@ -102,12 +102,13 @@ function Lesson1(props){
             <Grid item xs={6}>
                 <H2>VIDEO</H2>
                 <Item>
-                    Na sljedećem linku nalazi se video, vezan za prvu lekciju o prvoj pomoći.
-                    Preporučujemo Vam da pogledate.
+                    Ispod se nalazi video, preporučujemo Vam da ga pogledate!
                     <br/>
-                    <Link href={lekcija.video} color="#b71c1c">
+                    {/*<Link href={lekcija.video} color="#b71c1c">
                         {'Video'}
-                    </Link>
+                    </Link>*/}
+                    <ReactPlayer url={lekcija.video} playing controls={true}/>
+
                 </Item>
             </Grid>
             <Grid item xs={6}>

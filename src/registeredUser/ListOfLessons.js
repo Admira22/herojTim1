@@ -67,9 +67,9 @@ function ListOfLessons(props) {
                                 </Link>
                             </StyledTableCell>
                             <StyledTableCell align="left">
-                               <Link href={lekcija.video}>
+                               {/*<Link href={lekcija.video}>
                                    Link
-                               </Link>
+                               </Link>*/}
                             </StyledTableCell>
                             <StyledTableCell align="left">
                                 <Link href={`/pitanja/${lekcija.id}`}>
