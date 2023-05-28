@@ -14,10 +14,10 @@ function Navbar() {
                 </li>
 
                 <li>
-                    <a href="/src/unregisteredUser/HeartAttack">Prijava</a>
+                    <a href="/login">Prijava</a>
                 </li>
                 <li>
-                    <a href="/src/unregisteredUser/HeartAttack">Registracija</a>
+                    <a href="/signup">Registracija</a>
                 </li>
 
 

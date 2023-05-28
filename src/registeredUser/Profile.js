@@ -79,7 +79,7 @@ function Profile(){
                             </TableHead>
                             <TableBody sx={{backgroundColor:"whitesmoke"}}>
                                     <TableRow key={profile.id}>
-                                        <TableCell component="th" scope="row" align={"right"}>
+                                        <TableCell component="th" scope="row" align="right">
                                             <Typography fontWeight={"bold"} fontSize={18}>
                                                Ime
                                             </Typography>

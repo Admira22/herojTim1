@@ -11,6 +11,8 @@ import Info from "./Info";
 import Footer from "./Footer";
 import Button from "@mui/material/Button";
 
+axios.defaults.xsrfCookieName = 'csrftoken';
+axios.defaults.xsrfHeaderName = 'X-CSRFToken';
 
 function Lesson1(props){
     const Item = styled(Paper)(({ theme }) => ({
@@ -62,6 +64,42 @@ function Lesson1(props){
         fetchLesson()
     },[])
 
+
+    const [csrfToken, setCsrfToken] = useState('');
+
+    useEffect(() => {
+        const fetchCsrfToken = async () => {
+            try {
+                const response = await fetch(`${url}get-csrf-token/`);
+                const data = await response.json();
+                setCsrfToken(data.csrfToken);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchCsrfToken();
+    }, []);
+
+    const progres = () => {
+        fetch(`${url}progres/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': csrfToken,
+            },
+            credentials: 'include',
+        })
+            .then(response => response.json())
+            .then(data => {
+                // Handle the response data if needed
+                console.log(data);
+            })
+            .catch(error => {
+                // Handle any errors
+                console.error(error);
+            });
+    };
     return(
         <React.Fragment>
             <Header/>
@@ -121,7 +159,7 @@ function Lesson1(props){
                 </Item>
             </Grid>
             <Grid item xs={12} style={{ display: 'flex', justifyContent: 'right', alignItems: 'right', marginRight: '10px' }}>
-                   <Button variant="contained">Završena lekcija -></Button>
+                   <Button variant="contained" onClick={progres}>Završena lekcija -></Button>
             </Grid>
         </Grid>
             <Footer/>

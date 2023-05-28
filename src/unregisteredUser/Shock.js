@@ -86,10 +86,9 @@ function Shock2() {
                                         Korak 2:
                                     </h5>
                                     <p>
-                                        - Ako je žrtva bez svijesti, provjerite puls i disanje.<div></div>
-                                        - Započnite odmah s CPR-om ako žrtva ne diše.
-                                        <div></div>
-                                        - Ako je žrtva svjesna i ima bol, umirite je i pomognite joj da legne. Održavajte žrtvu toplom i udobnom.
+                                        - Ako je žrtva bez svijesti, provjerite puls i disanje.
+                                         Započnite odmah s CPR-om ako žrtva ne diše.
+                                        Ako je žrtva svjesna i ima bol, umirite je i pomognite joj da legne. Održavajte žrtvu toplom i udobnom.
 
                                     </p>
                                 </div>

@@ -1,6 +1,6 @@
 import './App.css';
 import {createTheme, CssBaseline, ThemeProvider} from "@mui/material";
-import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import WelcomePage from "./registeredUser/WelcomePage";
 import Blog from "./registeredUser/Blog";
 import Lesson1 from "./registeredUser/Lesson1";
@@ -12,8 +12,11 @@ import SignUp from "./login/SignUp";
 import SignIn from "./login/SignIn";
 import AuthContext,{AuthProvider} from "../src/context/AuthContext";
 import {useContext} from "react";
-import Header from "./registeredUser/Header";
 import Test from "./registeredUser/Test";
+import Home from "./unregisteredUser/Home";
+import HeartAttack from "./unregisteredUser/HeartAttack";
+import FirstAid from "./unregisteredUser/FirstAid";
+import MyComponent from "./registeredUser/Certifikat";
 
 function App() {
 
@@ -42,6 +45,11 @@ function App() {
           <ThemeProvider theme={theme}>
               <CssBaseline/>
               <BrowserRouter>
+                  <Routes>
+                      <Route path="/" element={<Home/>}/>
+                      <Route path="/heartattack" element={<HeartAttack/>} />
+                      <Route path="/bolest/:id" element={<FirstAid/>}/>
+                  </Routes>
                   <AuthProvider>
                   <Routes>
                      {/* <Route
@@ -54,17 +62,18 @@ function App() {
                               )
                           }
                       />*/}
-                      <Route path="/" element={<SignIn/>} />
+                        {/*<Route path="/" element={<SignIn/>} />*/}
                          <Route path="/signUp" element={<SignUp />} />
                          <Route path="/login" element={<SignIn />} />
                           <Route path="/Logo" element={<WelcomePage />} />
                           <Route path="/Profil" element={<Profile />} />
-                          <Route path="/Blog" element={<Blogs />} />
+                          <Route path="/Blog" element={<Blogs/>} />
                           <Route path="/Blog/:id" element={<Blog />} />
                           <Route path="/Lekcije" element={<AllLessons />} />
                           <Route path="/Lekcija/:id" element={<Lesson1 />} />
                           <Route path="/pitanja/:id" element={<Questions />} />
                           <Route path="/Test" element={<Test/>}/>
+                          <Route path="/certifikat" element={<MyComponent/>}/>
                   </Routes>
                   </AuthProvider>
               </BrowserRouter>

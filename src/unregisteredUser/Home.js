@@ -29,11 +29,11 @@ function Home1() {
         <section className="doctor_section layout_padding">
             <div className="container">
                 <div className="heading_container heading_center">
-                    <h4 id="em">
+                   <h4 id="em">
 
                         Hitna prva pomoć: Brza uputstva za kritične situacije
                     </h4>
-                    <p className="col-md-10 mx-auto px-0" id="em1" >
+                      <p className="col-md-10 mx-auto px-0" id="em1" >
                         Jeste li u hitnoj situaciji? Evo brzih uputstava za prvu pomoć!
                         Molimo vas da pažljivo pročitate uputstva kako biste reagovali
                         i pružili pomoć u hitnoj situaciji najbolje što možete.
@@ -44,7 +44,9 @@ function Home1() {
                     <div className="col-sm-6 col-lg-4 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/heartattack"> <img src={srcani} alt="" style={{ height: "375px", fontFamily: 'Nunito Sans', fontWeight: 'bold' }}/> </a>
+                                <a href={"bolest/1"}>
+                                    <img src={srcani} alt="" style={{ height: "375px", fontFamily: 'Nunito Sans', fontWeight: 'bold' }}/>
+                                </a>
                             </div>
                             <div className="detail-box">
                                 <div className="social_box">
@@ -76,7 +78,7 @@ function Home1() {
                     <div className="col-sm-6 col-lg-4 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/shock"><img src={el_udar} alt="" style={{ height: "375px"}}/> </a>
+                                <a href="/bolest/2"><img src={el_udar} alt="" style={{ height: "375px"}}/> </a>
                             </div>
                             <div className="detail-box">
                                 <div className="social_box">
@@ -152,9 +154,7 @@ function Home() {
     return (
         <div>
             <Navbar/>
-
             <Home00/>
-
             <Home1/>
             <Footer/>
 
