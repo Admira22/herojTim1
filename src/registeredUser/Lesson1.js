@@ -140,12 +140,8 @@ function Lesson1(props){
             <Grid item xs={6}>
                 <H2>VIDEO</H2>
                 <Item>
-                    Na sljedećem linku nalazi se video, vezan za prvu lekciju o prvoj pomoći.
-                    Preporučujemo Vam da pogledate.
                     <br/>
-                    <Link href={lekcija.video} color="#b71c1c">
                         {'Video'}
-                    </Link>
                 </Item>
             </Grid>
             <Grid item xs={6}>
