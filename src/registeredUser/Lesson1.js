@@ -10,9 +10,13 @@ import Header from "./Header";
 import Info from "./Info";
 import Footer from "./Footer";
 import Button from "@mui/material/Button";
+<<<<<<< HEAD
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
+=======
+import ReactPlayer from 'react-player'
+>>>>>>> a15a992603372c937df5efcd59098931fcb3943b
 
 function Lesson1(props){
     const Item = styled(Paper)(({ theme }) => ({
@@ -140,8 +144,13 @@ function Lesson1(props){
             <Grid item xs={6}>
                 <H2>VIDEO</H2>
                 <Item>
+                    Ispod se nalazi video, preporučujemo Vam da ga pogledate!
                     <br/>
+                    {/*<Link href={lekcija.video} color="#b71c1c">
                         {'Video'}
+                    </Link>*/}
+                    <ReactPlayer url={lekcija.video} playing controls={true}/>
+
                 </Item>
             </Grid>
             <Grid item xs={6}>
