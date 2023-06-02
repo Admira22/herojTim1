@@ -62,7 +62,7 @@ function Home1() {
                     <div className="col-sm-6 col-lg-4 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/gusenje"><img src={gusenje} alt="" style={{ height: "375px"}}/> </a>
+                                <a href={"bolest/3"}><img src={gusenje} alt="" style={{ height: "375px"}}/> </a>
                             </div>
                             <div className="detail-box">
                                 <div className="social_box">
@@ -96,7 +96,7 @@ function Home1() {
                     <div className="col-sm-6 col-lg-4 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/bleeding"><img src={ubod} alt="" style={{ height: "375px"}}/> </a>
+                                <a href={"bolest/4"}><img src={ubod} alt="" style={{ height: "375px"}}/> </a>
 
                             </div>
                             <div className="detail-box">
@@ -113,14 +113,14 @@ function Home1() {
                     <div className="col-sm-6 col-lg-4 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/temperature"><img src={temp} alt="" style={{ height: "375px"}}/> </a>
+                                <a href={"bolest/5"}><img src={temp} alt="" style={{ height: "375px"}}/> </a>
                             </div>
                             <div className="detail-box">
                                 <div className="social_box">
 
                                 </div>
                                 <h5 id="h5">
-                                    Visoka/niska temperatura
+                                    Visoka temperatura
                                 </h5>
 
                             </div>
@@ -129,7 +129,7 @@ function Home1() {
                     <div className="col-sm-6 col-lg-4 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/fainting"><img src={faint} alt="" style={{ height: "375px"}} /> </a>
+                                <a href={"bolest/7"}><img src={faint} alt="" style={{ height: "375px"}} /> </a>
                             </div>
                             <div className="detail-box">
                                 <div className="social_box">

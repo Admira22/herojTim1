@@ -9,7 +9,6 @@ export default AuthContext;
 export const AuthProvider = ({ children }) => {
 
     const navigate = useNavigate ();
-
     const [authTokens, setAuthTokens] = useState(() =>
         localStorage.getItem('authTokens')
             ? JSON.parse(localStorage.getItem('authTokens'))
@@ -40,7 +39,7 @@ export const AuthProvider = ({ children }) => {
             setAuthTokens(data);
             setUser(jwt_decode(data.access));
             localStorage.setItem('authTokens', JSON.stringify(data));
-            navigate('/Logo'); // Navigate to the desired location
+            navigate('/Logo');
         } else {
             alert('Pogrešno korisničko ime ili lozinka!');
         }
@@ -102,7 +101,7 @@ export const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={contextData}>
-            {loading ? null : children}
+            {loading ? null :children}
         </AuthContext.Provider>
     );
 };

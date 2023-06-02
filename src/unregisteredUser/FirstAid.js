@@ -12,10 +12,10 @@ function FirstAid() {
 
     const [bolest, setBolest] = useState([])
 
-    const { id } = useParams()
+    const {id} = useParams()
 
-    async function fetchLesson(){
-        const response =  await axios.get(`${url}bolest/${id}/`)
+    async function fetchLesson() {
+        const response = await axios.get(`${url}bolest/${id}/`)
         console.log(`${url}bolest/${id}`)
         console.log(response.data)
         setBolest(response.data[0])
@@ -23,52 +23,56 @@ function FirstAid() {
 
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetchLesson()
-    },[])
+    }, [])
     return (
         <div>
             <Navbar/>
             <section className="about_section layout_padding">
                 <div className="container">
-                    <div className="row">
-                        <div className="col-md-6">
-                            <div className="img-box">
-                                <img src={bolest.image} id="attack" alt="" />
-                            </div>
-                        </div>
-                        <div className="col-md-6">
-                            <div className="detail-box">
-                                <div  className="heading_container">
-                                    <h2 style={{ color: 'brown', fontWeight: 'bolder'}}>
-                                        {bolest.maintitle}: <span>SOS</span>
-                                    </h2>
+                    {
+                        id === 'null' ?
+                            <p>Bolest se ne nalazi u sistemu</p> :
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <div className="img-box">
+                                        <img src={bolest.image} id="attack" alt=""/>
+                                    </div>
                                 </div>
-                                <p>
-                                    {bolest.description}
-                                </p>
+                                <div className="col-md-6">
+                                    <div className="detail-box">
+                                        <div className="heading_container">
+                                            <h2 style={{color: 'brown', fontWeight: 'bolder'}}>
+                                                {bolest.maintitle}: <span>SOS</span>
+                                            </h2>
+                                        </div>
+                                        <p>
+                                            {bolest.description}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                    }
                 </div>
             </section>
             <section className="department_section layout_padding">
                 <div className="department_container">
                     <div className="container ">
                         <div className="heading_container heading_center">
-                            <h2 style={{ color: "brown", fontWeight: 'bolder', textAlign: 'center' }}>
+                            <h2 style={{color: "brown", fontWeight: 'bolder', textAlign: 'center'}}>
                                 {bolest.title}
                                 <hr/>
                             </h2>
                             <div>
-                                <br />
+                                <br/>
                             </div>
                         </div>
                         <div className="row">
                             <div className="col-lg-3 col-md-2">
                                 <div className="box ">
                                     <div className="detail-box">
-                                        <h5 style={{ color: "brown", fontWeight: 'bolder'}}>
+                                        <h5 style={{color: "brown", fontWeight: 'bolder'}}>
                                             {bolest.subtitle1}:
                                         </h5>
                                         <p> {bolest.part1} </p>
@@ -78,7 +82,7 @@ function FirstAid() {
                             <div className="col-lg-3 col-md-2">
                                 <div className="box ">
                                     <div className="detail-box">
-                                        <h5 style={{ color: "brown", fontWeight: 'bolder' }}>
+                                        <h5 style={{color: "brown", fontWeight: 'bolder'}}>
                                             {bolest.subtitle2}:
                                         </h5>
                                         <p>
@@ -90,7 +94,7 @@ function FirstAid() {
                             <div className="col-lg-3 col-md-2">
                                 <div className="box ">
                                     <div className="detail-box">
-                                        <h5  style={{ color: "brown", fontWeight: 'bolder' }}>
+                                        <h5 style={{color: "brown", fontWeight: 'bolder'}}>
                                             {bolest.subtitle3}
                                         </h5>
                                         <p>
@@ -102,7 +106,7 @@ function FirstAid() {
                             <div className="col-lg-3 col-md-2">
                                 <div className="box ">
                                     <div className="detail-box">
-                                        <h5 style={{ color: "brown", fontWeight: 'bolder' }}>
+                                        <h5 style={{color: "brown", fontWeight: 'bolder'}}>
                                             {bolest.subtitle4}
                                         </h5>
                                         <p>

@@ -126,7 +126,7 @@ function Profile(){
                                         </Typography>
                                     </TableCell>
                                 </TableRow>
-                                <TableRow key={profile.id}>
+                                {/*<TableRow key={profile.id}>
                                     <TableCell component="th" scope="row" align={"right"}>
                                         <Typography fontWeight={"bold"} fontSize={18}>
                                             Dijete
@@ -137,7 +137,7 @@ function Profile(){
                                             {profile.child}
                                         </Typography>
                                     </TableCell>
-                                </TableRow>
+                                </TableRow>*/}
                             </TableBody>
                         </Table>
                     </TableContainer>

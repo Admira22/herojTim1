@@ -12,10 +12,13 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Footer from "../registeredUser/Footer";
 import { InputLabel, MenuItem, Select, Switch} from "@mui/material";
+import axios from "axios";
+import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 
 export default function SignUp() {
-    const handleSubmit = (event) => {
+    /*const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
         console.log({
@@ -27,7 +30,34 @@ export default function SignUp() {
 
     const handleChange = (event) => {
         setLc(event.target.value);
+
+    };*/
+    const navigate = useNavigate();
+    const url = 'http://127.0.0.1:8000/'
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [firstName, setfirstName] = useState('');
+    const [lastName, setlastName] = useState('');
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const response = await axios.post(`${url}token/register/`, {
+                username,
+                email,
+                password,
+                firstName,
+                lastName
+            });
+            console.log(response.data); // Handle the response as needed
+            navigate(`../login`, { replace: true })
+        } catch (error) {
+            console.error(error);
+        }
     };
+
 
     return (
             <Container component="main" maxWidth="xs">
@@ -48,49 +78,57 @@ export default function SignUp() {
                     </Typography>
                     <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
                         <Grid container spacing={2}>
-                            <Grid item xs={12} sm={6}>
-                                <TextField
-                                    autoComplete="given-name"
-                                    name="firstName"
-                                    required
-                                    fullWidth
-                                    id="firstName"
-                                    label="Ime"
-                                    autoFocus
-                                />
-                            </Grid>
-                            <Grid item xs={12} sm={6}>
+                            <Grid item xs={12}>
                                 <TextField
                                     required
                                     fullWidth
-                                    id="lastName"
-                                    label="Prezime"
-                                    name="lastName"
-                                    autoComplete="family-name"
+                                    type="text"
+                                    placeholder="Username"
+                                    value={username}
+                                    onChange={(e) => setUsername(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
                                     required
                                     fullWidth
-                                    id="email"
-                                    label="Email adresa"
-                                    name="email"
-                                    autoComplete="email"
+                                    type="email"
+                                    placeholder="Email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
                                 />
                             </Grid>
                             <Grid item xs={12}>
                                 <TextField
                                     required
                                     fullWidth
-                                    name="password"
-                                    label="Lozinka"
                                     type="password"
-                                    id="password"
-                                    autoComplete="new-password"
+                                    placeholder="Password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
                                 />
                             </Grid>
-                            <Grid item xs={12} sm={12}>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    type="text"
+                                    placeholder="Ime"
+                                    value={firstName}
+                                    onChange={(e) => setfirstName(e.target.value)}
+                                />
+                            </Grid>
+                            <Grid item xs={12}>
+                                <TextField
+                                    required
+                                    fullWidth
+                                    type="text"
+                                    placeholder="Prezime"
+                                    value={lastName}
+                                    onChange={(e) => setlastName(e.target.value)}
+                                />
+                            </Grid>
+                           {/* <Grid item xs={12} sm={12}>
                                 <InputLabel id="demo-simple-select-label">Lokalna zajednica</InputLabel>
                                 <Select
                                     labelId="demo-simple-select-label"
@@ -106,10 +144,7 @@ export default function SignUp() {
                                     <MenuItem value={30}>Novo Srajevo</MenuItem>
                                     <MenuItem value={30}>Ilidža</MenuItem>
                                 </Select>
-                            </Grid>
-                            <Grid item xs={12} sm={12}>
-                                <FormControlLabel required control={<Switch />} label="Da li imate dijete?" />
-                            </Grid>
+                            </Grid>*/}
                         </Grid>
                         <Button
                             type="submit"

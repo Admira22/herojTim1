@@ -51,7 +51,6 @@ function ListOfLessons(props) {
                     <TableRow>
                         <StyledTableCell>Broj lekcije</StyledTableCell>
                         <StyledTableCell align="left">Naziv lekcije</StyledTableCell>
-                        <StyledTableCell align="left">Video</StyledTableCell>
                         <StyledTableCell align="left">Pitanja</StyledTableCell>
                     </TableRow>
                 </TableHead>
@@ -66,11 +65,11 @@ function ListOfLessons(props) {
                                    {lekcija.title}
                                 </Link>
                             </StyledTableCell>
-                            <StyledTableCell align="left">
-                               {/*<Link href={lekcija.video}>
+                           {/* <StyledTableCell align="left">
+                               <Link href={lekcija.video}>
                                    Link
-                               </Link>*/}
-                            </StyledTableCell>
+                               </Link>
+                            </StyledTableCell>*/}
                             <StyledTableCell align="left">
                                 <Link href={`/pitanja/${lekcija.id}`}>
                                     Pitanja
