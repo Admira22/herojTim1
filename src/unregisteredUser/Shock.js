@@ -1,7 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./Navbar";
-import Footer from "../registeredUser/Footer";
+import Footer1 from "./Footer";
 import sok from "../images/el_sok.jpg"
 function Shock1() {
     return (
@@ -26,10 +26,10 @@ function Shock1() {
                             </div>
                             <p >
 
-                                Ako sumnjate da je neko doživio električni udar, morate
-                                osigurati da su sve izvore napajanja isključene prije nego što pružite
+                               - Ako sumnjate da je neko doživio električni udar, morate
+                                osigurati da su sve izvori napajanja isključeni prije nego što pružite
                                 prvu pomoć povrijeđenoj osobi. <div></div>
-                                Postupak koji ćete poduzeti zavisi o tome da li je
+                               - Postupak koji ćete poduzeti zavisi o tome da li je
                                 rizik izazvan visokonaponskom ili niskonaponskom strujom.
 
                             </p>
@@ -134,6 +134,7 @@ function Shock2() {
                     </div>
                 </div>
             </div>
+            <hr/>
         </section>
 
     );
@@ -146,7 +147,8 @@ function Shock() {
             <Navbar/>
             <Shock1 />
             <Shock2 />
-            <Footer/>
+            <Footer1/>
+
         </div>
     );
 }

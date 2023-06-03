@@ -3,7 +3,9 @@ import './Navbar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './HeartAttack.css';
 import Navbar from "./Navbar";
+
 import srcani from "../images/fa_ha.jpg"
+import Footer1 from "./Footer";
 function FirstHA() {
     return (
         <section className="about_section layout_padding">
@@ -132,6 +134,7 @@ function SecondHA() {
                     </div>
                 </div>
             </div>
+            <hr/>
         </section>
 
     );
@@ -142,6 +145,8 @@ function HeartAttack() {
             <Navbar/>
             <FirstHA />
             <SecondHA />
+            <Footer1/>
+
         </div>
     );
 }

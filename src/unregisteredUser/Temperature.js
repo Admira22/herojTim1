@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './Bleeding.css';
 import Navbar from "./Navbar";
 import temp from "../images/temp.jpg"
-
+import Footer1 from "./Footer";
 function Cuts() {
     return (
         <section className="about_section layout_padding">
@@ -49,7 +49,7 @@ function Steps() {
                 <div className="container ">
                     <div className="heading_container heading_center">
                         <h2 style={{ color: "brown", fontWeight: 'bolder', textAlign: 'center' }}>
-                            Koraci koje treba poduzeti prilikom prve pomoci kod povišene temperature:
+                            Koraci koje treba poduzeti prilikom prve pomoći kod povišene temperature:
                             <hr/>
                         </h2>
                         <div>
@@ -213,6 +213,7 @@ function Steps2() {
                     </div>
                 </div>
             </div>
+            <hr/>
         </section>
 
     );
@@ -227,8 +228,8 @@ function Temperatura() {
             <Cuts/>
 
             <Steps/>
-
             <Steps2/>
+            <Footer1/>
         </div>
     );
 }

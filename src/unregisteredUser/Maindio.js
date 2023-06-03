@@ -3,7 +3,7 @@ import './Navbar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Maindio.css';
 import Navbar from "./Navbar";
-import Footer from "../registeredUser/Footer";
+import Footer1 from "./Footer";
 import zahvat from "../images/zahvat.jpg"
 function AboutSection() {
     return (
@@ -48,7 +48,7 @@ function Maindio() {
         <div className="department_container">
             <div className="container " style={{ marginTop:"-50px" }}>
                 <div className="heading_container heading_center" >
-                    <h2 style={{ color: "brown", fontWeight: 'bolder' }}>
+                    <h2 style={{ color: "brown", fontWeight: 'bolder', textAlign: "center" }}>
                         Koraci koje treba poduzeti prilikom prve pomoći kod gušenja:
                         <hr/>
                     </h2>
@@ -130,6 +130,7 @@ function Maindio() {
                 </div>
             </div>
         </div>
+        <hr/>
     </section>
 
     );
@@ -140,7 +141,7 @@ function Main() {
             <Navbar/>
             <AboutSection />
             <Maindio />
-            <Footer/>
+            <Footer1/>
         </div>
     );
 }

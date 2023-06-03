@@ -3,7 +3,7 @@ import React from 'react';
 import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./Navbar";
-import Footer from "../registeredUser/Footer";
+
 import srcani from "../images/attack.webp"
 import gusenje from "../images/gusenje2.jpg"
 import el_udar from "../images/el_udar.jpg"
@@ -11,6 +11,7 @@ import ubod from "../images/ubod.jpg"
 import temp from "../images/tempp.gif"
 import faint from "../images/fainting.jpg"
 
+import Footer1 from "./Footer";
 import nasl from "../images/nasl.jpeg"
 
 
@@ -22,7 +23,7 @@ function Home00() {
         </div>
 
     );
- }
+}
 
 function Home1() {
     return (
@@ -33,18 +34,18 @@ function Home1() {
 
                         Hitna prva pomoć: Brza uputstva za kritične situacije
                     </h4>
-                    <p className="col-md-10 mx-auto px-0" id="em1" >
+                    <p className="col-md-10 mx-auto px-0" id="em1">
                         Jeste li u hitnoj situaciji? Evo brzih uputstava za prvu pomoć!
                         Molimo vas da pažljivo pročitate uputstva kako biste reagovali
                         i pružili pomoć u hitnoj situaciji najbolje što možete.
-                        Vaša brza reakcija može biti ključna za spasavanje života.
+                        Vaša brza reakcija može biti ključna za spašavanje života.
                     </p>
                 </div>
                 <div className="row">
-                    <div className="col-sm-6 col-lg-4 mx-auto">
+                    <div className="col-sm-6 col-lg-3 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/heartattack"> <img src={srcani} alt="" style={{ height: "375px", fontFamily: 'Nunito Sans', fontWeight: 'bold' }}/> </a>
+                                <a href="/heartattack"> <img src={srcani} alt="" style={{ height: "250px" }}/> </a>
                             </div>
                             <div className="detail-box">
                                 <div className="social_box">
@@ -57,10 +58,10 @@ function Home1() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-6 col-lg-4 mx-auto">
+                    <div className="col-sm-6 col-lg-3 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/gusenje"><img src={gusenje} alt="" style={{ height: "375px"}}/> </a>
+                                <a href="/gusenje"><img src={gusenje} alt="" style={{ height: "250px"}}/> </a>
                             </div>
                             <div className="detail-box">
                                 <div className="social_box">
@@ -73,10 +74,10 @@ function Home1() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-6 col-lg-4 mx-auto">
+                    <div className="col-lg-3 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/shock"><img src={el_udar} alt="" style={{ height: "375px"}}/> </a>
+                                <a href="/shock"><img src={el_udar} alt="" style={{ height: "250px"}}/> </a>
                             </div>
                             <div className="detail-box">
                                 <div className="social_box">
@@ -91,10 +92,10 @@ function Home1() {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-sm-6 col-lg-4 mx-auto">
+                    <div className="col-lg-3 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/bleeding"><img src={ubod} alt="" style={{ height: "375px"}}/> </a>
+                                <a href="/bleeding"><img src={ubod} alt="" style={{ height: "250px"}}/> </a>
 
                             </div>
                             <div className="detail-box">
@@ -108,10 +109,10 @@ function Home1() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-6 col-lg-4 mx-auto">
+                    <div className="col-lg-3 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/temperature"><img src={temp} alt="" style={{ height: "375px"}}/> </a>
+                                <a href="/temperature"><img src={temp} alt="" style={{ height: "225px"}}/> </a>
                             </div>
                             <div className="detail-box">
                                 <div className="social_box">
@@ -124,10 +125,10 @@ function Home1() {
                             </div>
                         </div>
                     </div>
-                    <div className="col-sm-6 col-lg-4 mx-auto">
+                    <div className="col-lg-3 mx-auto">
                         <div className="box">
                             <div className="img-box">
-                                <a href="/fainting"><img src={faint} alt="" style={{ height: "375px"}} /> </a>
+                                <a href="/fainting"><img src={faint} alt="" style={{ height: "250px"}} /> </a>
                             </div>
                             <div className="detail-box">
                                 <div className="social_box">
@@ -151,12 +152,16 @@ function Home1() {
 function Home() {
     return (
         <div>
+
             <Navbar/>
 
             <Home00/>
 
+
             <Home1/>
-            <Footer/>
+
+
+            <Footer1/>
 
 
         </div>

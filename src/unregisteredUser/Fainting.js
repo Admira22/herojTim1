@@ -3,7 +3,8 @@ import './Navbar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Maindio.css';
 import Navbar from "./Navbar";
-import Footer from "../registeredUser/Footer";
+
+import Footer1 from "./Footer";
 import nesvjestica from "../images/fainting.jpg"
 
 function AboutSection() {
@@ -143,6 +144,7 @@ function Fainting() {
                     </div>
                 </div>
             </div>
+            <hr/>
         </section>
 
     );
@@ -153,7 +155,8 @@ function Fainting1() {
             <Navbar/>
             <AboutSection />
             <Fainting />
-            <Footer/>
+            <Footer1/>
+
         </div>
     );
 }

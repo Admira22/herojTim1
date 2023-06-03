@@ -1,147 +1,107 @@
-nav {
+.header_section {
+    padding: 15px 0;
     background-color: brown;
-    overflow: hidden;
-    padding-right: 25px;
-    padding-left: 25px;
-    font-weight: bold;
-    color: #ffffff;
-    text-transform: uppercase;
-    font-family: 'Nunito', sans-serif;
-    padding-top: 25px;
+}
+* {
+    font-family: 'Montserrat', sans-serif;
 }
 
-nav ul {
-    list-style-type: none;
+#main-container .custom_nav-container {
     display: flex;
-    float: right;
-    padding-left: 20px;
-    color: #ffffff;
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 5px;
-    -webkit-transition: all 0.3s;
-    transition: all 0.3s;
-
-
+    flex-direction: row;
+    align-items: center;
 
 }
 
+#main-container .custom_nav-container.flex-column {
+    flex-direction: column;
+}
 
-span {
+#main-container .navbar-brand {
     font-weight: bold;
     font-size: 24px;
-    color: #ffffff;
+    color: white;
     text-transform: uppercase;
-    margin-left: 110px;
+    margin-right: 20px;
+    height: 7.5vh;
+}
+
+#main-container .navbar-nav {
+    display: flex;
+    flex-direction: row;
+
 
 }
 
-nav ul li {
-    margin: 0 10px;
+#main-container .custom_nav-container.flex-column .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
+
 }
 
-nav ul li a {
-    display: block;
-    text-decoration: none;
+#main-container .nav-link {
     padding: 5px 20px;
-    color: #ffffff;
     text-align: center;
     text-transform: uppercase;
     border-radius: 5px;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
+    margin-right: 10px;
+}
+
+#main-container .custom_nav-container.flex-column .nav-link {
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+.navbar-nav  {
+    color: white;
+}
+
+.navbar-nav a:hover {
+    color: black;
+}
+span img {
+    margin-top: -34px;
+}
+
+
+input {
+    width: 280px;
+    height: 35px;
+    background: rgb(176,41,41);
+    background: linear-gradient(90deg, rgba(176,41,41,1) 0%, rgba(74,5,5,1) 100%);
+    border: 1px solid white;
+    color: white;
+    font-weight: bolder;
+
 
 }
 
 
-
-nav ul li a:hover {
-    color: #b64242;
-    text-decoration: none;
+.search-container {
+    display: flex;
+    align-items: center;
+    float: right;
 }
 
-@media (max-width: 1299px) {
-    .hero_area .hero_bg_box {
-        top: 0;
-        left: 0;
-        width: 100%;
-    }
-
+.search-input {
+    padding: 8px;
+    width: 100%; /* Puni širina */
+    max-width: 300px; /* Maksimalna širina */
+    border-radius: 20px;
 }
 
-@media (max-width: 1120px) {}
-
-@media (max-width: 992px) {
-    .hero_area {
-        min-height: auto;
-    }
-
-    .slider_section .detail-box {
-        margin-bottom: 45px;
-    }
-
-    .custom_nav-container .navbar-nav {
-        padding-top: 15px;
-        align-items: center;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .custom_nav-container .navbar-nav .nav-item .nav-link {
-        padding: 5px 25px;
-        margin: 5px 0;
-
-    }
-
-    .footer_section .footer_bg_box img {
-        -o-object-position: 10% top;
-        object-position: 10% top;
-    }
+.search-button {
+    background-color: brown;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    margin-left: 8px;
+    cursor: pointer;
 }
 
-@media (max-width: 767px) {
-
-    .about_section .img-box {
-        margin-bottom: 30px;
-    }
-
-    .contact_section .form_container {
-        margin-bottom: 45px;
-    }
-
-    .client_section .box {
-        margin: 45px 0;
-    }
-
-    .hero_area .hero_bg_box img {
-        -o-object-position: center top;
-        object-position: center top;
-    }
+.search-button:focus {
+    outline: none;
 }
 
-@media (max-width: 576px) {
-
-}
-
-@media (max-width: 480px) {
-    .slider_section .detail-box h1 {
-        font-size: 2rem;
-    }
-
-    .about_section {
-        border-radius: 90px;
-        padding-left: 10px;
-        padding-right: 10px;
-    }
-    
-}
-
-@media (max-width: 420px) {}
-
-@media (max-width: 376px) {}
-
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1170px;
-    }
-}

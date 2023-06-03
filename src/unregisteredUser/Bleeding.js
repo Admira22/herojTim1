@@ -5,7 +5,8 @@ import './HeartAttack.css';
 import Navbar from "./Navbar";
 import './Bleeding.css';
 import krv from "../images/bleeding.png"
-import ubod from "../images/ubod.jpg"
+import osa from "../images/osa.jpg"
+import Footer1 from "./Footer";
 
 
 function Cuts() {
@@ -28,10 +29,10 @@ function Cuts() {
                                 </h2>
                             </div>
                             <p>
-                                Pozovite hiznu pomoć na broj 124.<div></div>
-                                Započnite pružanjem prve pomoći povrijeđenoj osobi.<div></div>
-                                Ako rana krvari, stavite pritisak izravno na posjekotinu.<div></div>
-                                Ne vadite strana tijela iz rane.<div></div>
+                                - Pozovite hitnu pomoć na broj 124.<div></div>
+                                - Započnite pružanjem prve pomoći povrijeđenoj osobi.<div></div>
+                                - Ako rana krvari, stavite pritisak izravno na posjekotinu.<div></div>
+                                - Ne vadite strana tijela iz rane.<div></div>
                             </p>
                         </div>
                     </div>
@@ -54,7 +55,7 @@ function Steps() {
                 <div className="container ">
                     <div className="heading_container heading_center">
                         <h2 style={{ color: "brown", fontWeight: 'bolder', textAlign: 'center' }}>
-                            Koraci koje treba poduzeti prilikom prve pomoci kod posjekotina:
+                            Koraci koje treba poduzeti prilikom prve pomoći kod posjekotina:
                         </h2>
                         <hr/>
                         <div>
@@ -147,7 +148,7 @@ function Bite() {
                 <div className="row">
                     <div className="col-md-6">
                         <div className="img-box">
-                            <img src={ubod} alt="ubod insketa" />
+                            <img src={osa} alt="ubod insketa"/>
                         </div>
                     </div>
                     <div className="col-md-6">
@@ -158,8 +159,8 @@ function Bite() {
                                 </h2>
                             </div>
                             <p>
-                                Uklonite ubod što je prije moguće.<div></div>
-                                Ako primijetite da imate tešku reakciju na ubod insekta,
+                                - Uklonite ubod što je prije moguće.<div></div>
+                                - Ako primijetite da imate tešku reakciju na ubod insekta,
                                 kao što su oticanje lica, otežano disanje ili vrtoglavica,
                                 odmah potražite hitnu medicinsku pomoć.<div></div>
 
@@ -179,7 +180,7 @@ function Steps2() {
                 <div className="container ">
                     <div className="heading_container heading_center">
                         <h2 style={{ color: "brown", fontWeight: 'bolder', textAlign: 'center' }}>
-                            Koraci koje treba poduzeti prilikom prve pomoci kod uboda insekta:
+                            Koraci koje treba poduzeti prilikom prve pomoći kod uboda insekta:
                         </h2>
                         <hr/>
                         <div>
@@ -253,6 +254,7 @@ function Steps2() {
                     </div>
                 </div>
             </div>
+            <hr/>
         </section>
 
     );
@@ -271,6 +273,8 @@ function Bleeding() {
             <Bite/>
 
             <Steps2/>
+            <Footer1/>
+
         </div>
     );
 }
