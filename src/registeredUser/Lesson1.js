@@ -4,19 +4,21 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Link from "@mui/material/Link";
 import axios from "axios";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {useParams} from "react-router";
 import Header from "./Header";
 import Info from "./Info";
 import Footer from "./Footer";
 import Button from "@mui/material/Button";
-<<<<<<< HEAD
+import ReactPlayer from 'react-player'
+import AuthContext from "../context/AuthContext";
+import {useNavigate} from "react-router-dom";
+
 
 axios.defaults.xsrfCookieName = 'csrftoken';
 axios.defaults.xsrfHeaderName = 'X-CSRFToken';
-=======
-import ReactPlayer from 'react-player'
->>>>>>> a15a992603372c937df5efcd59098931fcb3943b
+
+
 
 function Lesson1(props){
     const Item = styled(Paper)(({ theme }) => ({
@@ -68,42 +70,41 @@ function Lesson1(props){
         fetchLesson()
     },[])
 
+    let { authTokens, logoutUser } = useContext(AuthContext);
+    let [profile, setProfile] = useState([]);
+    const [disableButton, setDisableButton] = useState(false);
+    const navigate = useNavigate();
+    let setProgres = async () => {
+        const url = 'http://127.0.0.1:8000/';
+        try {
+            let response = await axios.post(`${url}progres/`, {}, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + String(authTokens.access)
+                }
+            });
+            let data = response.data;
+            console.log(data);
 
-    const [csrfToken, setCsrfToken] = useState('');
+            if (response.status === 200) {
+                setProfile(data);
+            } else if (response.status === 401) {
+                logoutUser();
+            }
+        } catch (error) {
+            console.log(error);
+        }finally {
+            setDisableButton(true);
+            console.log('ne radi')
+        }
+    };
 
     useEffect(() => {
-        const fetchCsrfToken = async () => {
-            try {
-                const response = await fetch(`${url}get-csrf-token/`);
-                const data = await response.json();
-                setCsrfToken(data.csrfToken);
-            } catch (error) {
-                console.error(error);
-            }
-        };
-
-        fetchCsrfToken();
+        //setProgres(); // Call setProgres function here
     }, []);
 
-    const progres = () => {
-        fetch(`${url}progres/`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': csrfToken,
-            },
-            credentials: 'include',
-        })
-            .then(response => response.json())
-            .then(data => {
-                // Handle the response data if needed
-                console.log(data);
-            })
-            .catch(error => {
-                // Handle any errors
-                console.error(error);
-            });
-    };
+
+
     return(
         <React.Fragment>
             <Header/>
@@ -158,13 +159,16 @@ function Lesson1(props){
                 <Item>
                     Nakon završene prve lekcije u nastavku imate set pitnja koji će Vam pomoći, da se spremite za završni test iz Prve pomoći.
                     <br/>
-                    <Link href="neki_link" color="#b71c1c">
+                    <Link href={`/pitanja/${lekcija.id}`} color="#b71c1c">
                         {'Pitanja'}
                     </Link>
                 </Item>
             </Grid>
             <Grid item xs={12} style={{ display: 'flex', justifyContent: 'right', alignItems: 'right', marginRight: '10px' }}>
-                   <Button variant="contained" onClick={progres}>Završena lekcija -></Button>
+                   <Button variant="contained"
+                           onClick={setProgres}
+                           disabled={disableButton}
+                   >Završena lekcija -></Button>
             </Grid>
         </Grid>
             <Footer/>
