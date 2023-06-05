@@ -10,13 +10,13 @@ import Profile from "./registeredUser/Profile";
 import Questions from "./registeredUser/Questions";
 import SignUp from "./login/SignUp";
 import SignIn from "./login/SignIn";
-import AuthContext,{AuthProvider} from "../src/context/AuthContext";
-import {useContext} from "react";
+import {AuthProvider} from "./context/AuthContext";
 import Test from "./registeredUser/Test";
 import Home from "./unregisteredUser/Home";
 import HeartAttack from "./unregisteredUser/HeartAttack";
 import FirstAid from "./unregisteredUser/FirstAid";
-import MyComponent from "./registeredUser/Certifikat";
+import Certifikat from "./registeredUser/Certifikat";
+
 
 function App() {
 
@@ -39,7 +39,7 @@ function App() {
   });
 
 
-    let user = useContext(AuthContext)
+    //let user = useContext(AuthContext)
     return (
       <div className="App">
           <ThemeProvider theme={theme}>
@@ -53,6 +53,7 @@ function App() {
                   </Routes>
                   <AuthProvider>
                   <Routes>
+<<<<<<< HEAD
                          <Route path="/login" element={<SignIn />} />
                          <Route path="/Logo" element={<WelcomePage />} />
                          <Route path="/Profil" element={<Profile />} />
@@ -63,6 +64,19 @@ function App() {
                          <Route path="/pitanja/:id" element={<Questions />} />
                          <Route path="/Test" element={<Test/>} />
                          <Route path="/certifikat" element={<MyComponent/>}/>
+=======
+                          <Route path="/login" element={<SignIn />} />
+                          <Route path="/Logo" element={<WelcomePage />} />
+                          <Route path="/Profil" element={<Profile />} />
+                          <Route path="/Blog" element={<Blogs/>} />
+                          <Route path="/Blog/:id" element={<Blog />} />
+                          <Route path="/Lekcije" element={<AllLessons />} />
+                          <Route path="/Lekcija/:id" element={<Lesson1 />} />
+                          <Route path="/pitanja/:id" element={<Questions />} />
+                          <Route path="/Test" element={<Test/>}/>
+                          <Route path="/certifikat" element={<Certifikat/>}/>
+
+>>>>>>> a4ba2aced305aae220c0b0c6bdbad17446cd3b22
                   </Routes>
                   </AuthProvider>
               </BrowserRouter>
