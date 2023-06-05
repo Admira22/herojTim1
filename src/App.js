@@ -65,15 +65,15 @@ function App() {
                         {/*<Route path="/" element={<SignIn/>} />*/}
                          <Route path="/signUp" element={<SignUp />} />
                          <Route path="/login" element={<SignIn />} />
-                          <Route path="/Logo" element={<WelcomePage />} />
-                          <Route path="/Profil" element={<Profile />} />
-                          <Route path="/Blog" element={<Blogs/>} />
-                          <Route path="/Blog/:id" element={<Blog />} />
-                          <Route path="/Lekcije" element={<AllLessons />} />
-                          <Route path="/Lekcija/:id" element={<Lesson1 />} />
-                          <Route path="/pitanja/:id" element={<Questions />} />
-                          <Route path="/Test" element={<Test/>}/>
-                          <Route path="/certifikat" element={<MyComponent/>}/>
+                         <Route path="/Logo" element={<WelcomePage />} />
+                         <Route path="/Profil" element={<Profile />} />
+                         <Route path="/Blog" element={<Blogs/>} />
+                         <Route path="/Blog/:id" element={<Blog />} />
+                         <Route path="/Lekcije" element={<AllLessons />} />
+                         <Route path="/Lekcija/:id" element={<Lesson1 />} />
+                         <Route path="/pitanja/:id" element={<Questions />} />
+                         <Route path="/Test" element={<Test/>} />
+                         <Route path="/certifikat" element={<MyComponent/>}/>
                   </Routes>
                   </AuthProvider>
               </BrowserRouter>

@@ -27,13 +27,12 @@ nav ul {
 }
 
 
-span {
+.logo1{
     font-weight: bold;
     font-size: 24px;
     color: #ffffff;
     text-transform: uppercase;
     margin-left: 110px;
-
 }
 
 nav ul li {

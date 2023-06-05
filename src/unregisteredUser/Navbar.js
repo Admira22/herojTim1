@@ -5,7 +5,7 @@ import './Navbar.css';
 function Navbar() {
     return (
         <nav>
-            <span>
+            <span className={"logo1"}>
               Heroj
             </span>
             <ul>
