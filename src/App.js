@@ -49,21 +49,10 @@ function App() {
                       <Route path="/" element={<Home/>}/>
                       <Route path="/heartattack" element={<HeartAttack/>} />
                       <Route path="/bolest/:id" element={<FirstAid/>}/>
+                      <Route path="/signUp" element={<SignUp />} />
                   </Routes>
                   <AuthProvider>
                   <Routes>
-                     {/* <Route
-                          path="/"
-                          element={
-                              user ? (
-                                  <Navigate to="/login" />
-                              ) : (
-                                  <SignIn />
-                              )
-                          }
-                      />*/}
-                        {/*<Route path="/" element={<SignIn/>} />*/}
-                         <Route path="/signUp" element={<SignUp />} />
                          <Route path="/login" element={<SignIn />} />
                          <Route path="/Logo" element={<WelcomePage />} />
                          <Route path="/Profil" element={<Profile />} />
