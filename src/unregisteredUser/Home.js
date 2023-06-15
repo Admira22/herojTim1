@@ -1,9 +1,7 @@
-
 import React from 'react';
 import './Home.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from "./Navbar";
-import Footer from "../registeredUser/Footer";
 import srcani from "../images/attack.webp"
 import gusenje from "../images/gusenje2.jpg"
 import el_udar from "../images/el_udar.jpg"
@@ -12,6 +10,8 @@ import temp from "../images/tempp.gif"
 import faint from "../images/fainting.jpg"
 
 import nasl from "../images/nasl.jpeg"
+
+import Footer from "../registeredUser/Footer";
 
 
 
@@ -157,8 +157,6 @@ function Home() {
             <Home00/>
             <Home1/>
             <Footer/>
-
-
         </div>
     );
 }

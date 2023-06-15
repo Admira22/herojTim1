@@ -82,7 +82,7 @@ export default function SignIn() {
                         <Grid container>
                             <Grid item>
                                 <Link href="/signUp" variant="body2">
-                                    {"Nemate korisniči račun?"}
+                                    {"Nemate korisnički račun?"}
                                 </Link>
                             </Grid>
                         </Grid>

@@ -16,16 +16,12 @@ function FirstAid() {
 
     async function fetchLesson() {
         const response = await axios.get(`${url}bolest/${id}/`)
-        console.log(`${url}bolest/${id}`)
-        console.log(response.data)
         setBolest(response.data[0])
-        console.log('HEJ')
-
     }
 
     useEffect(() => {
         fetchLesson()
-    }, [])
+    }, [id])
     return (
         <div>
             <Navbar/>
