@@ -1,7 +1,7 @@
-import Header from "./Header";
-import Info from "./Info";
+import Header from "../Header";
+import Info from "../Info";
 import QA from "./QA";
-import Footer from "./Footer";
+import Footer from "../Footer";
 
 function Questions(){
     return(

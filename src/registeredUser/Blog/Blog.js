@@ -2,13 +2,13 @@ import Grid from "@mui/material/Grid";
 import * as React from "react";
 import {styled} from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-import Header from "./Header";
-import Info from "./Info";
-import Footer from "./Footer";
+import Header from "../Header";
+import Info from "../Info";
+import Footer from "../Footer";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {useParams} from "react-router-dom";
-import Help from "./Help";
+import Help from "../Help";
 
 
 function Blog(){

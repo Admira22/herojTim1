@@ -1,4 +1,4 @@
-import Header from "./Header";
+import Header from "../Header";
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Table from '@mui/material/Table';
@@ -9,10 +9,10 @@ import TableRow from '@mui/material/TableRow';
 import {TableCell} from "@mui/material";
 import Typography from '@mui/material/Typography';
 import  Progres from "./Progres";
-import Footer from "./Footer";
-import Info from "./Info";
+import Footer from "../Footer";
+import Info from "../Info";
 import {useContext, useEffect, useState} from "react";
-import AuthContext from "../context/AuthContext";
+import AuthContext from "../../context/AuthContext";
 
 
 function Circle({ color, text }) {

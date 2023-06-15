@@ -45,7 +45,7 @@ function ListOfLessons(props) {
         fetchLesson()
     }, [])
     return (
-        <TableContainer component={Paper}>
+        <TableContainer component={Paper} sx={{marginLeft:5}}>
             <Table sx={{marginLeft: 10, minWidth: 600, maxWidth: 900}} aria-label="customized table">
                 <TableHead>
                     <TableRow>

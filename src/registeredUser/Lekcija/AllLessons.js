@@ -1,21 +1,20 @@
+import Info from "../Info";
 import * as React from "react";
-import Info from "./Info";
+import ListOfLessons from "./ListOfLessons";
 import Grid from "@mui/material/Grid";
-import News from "./News";
-import Blog1 from "./Blog1";
-import Help from "./Help";
-import Footer from "./Footer";
-import Header from "./Header";
+import Help from "../Help";
+import Header from "../Header";
+import Footer from "../Footer";
 
-function Blogs() {
-    return (
+function AllLessons(){
+    return(
         <React.Fragment>
             <Header/>
             <Info/>
             <Grid container spacing={5}>
-                    <Grid item xs={8}>
-                        <Blog1/>
-                    </Grid>
+                <Grid item xs={8}>
+                    <ListOfLessons/>
+                </Grid>
                 <Grid item xs={4}>
                     <Help/>
                 </Grid>
@@ -24,4 +23,4 @@ function Blogs() {
         </React.Fragment>
     )
 }
-export default Blogs;
+export default AllLessons;

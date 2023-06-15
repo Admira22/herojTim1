@@ -124,13 +124,14 @@ const Cerfifikat = () => {
 };
 
 export default Cerfifikat;*/
+
 import React, { useContext, useEffect, useState } from 'react';
-import AuthContext from "../context/AuthContext";
+import AuthContext from "../../context/AuthContext";
 import { renderToString } from 'react-dom/server';
-import html2pdf from 'html2pdf.js';
+import html2pdf from '../../../node_modules/html2pdf.js/dist/html2pdf';
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
-import myLogo from '../images/myLogo.png';
+import myLogo from '../../images/myLogo.png';
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import axios from "axios";

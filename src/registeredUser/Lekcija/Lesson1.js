@@ -6,12 +6,12 @@ import Link from "@mui/material/Link";
 import axios from "axios";
 import {useContext, useEffect, useState} from "react";
 import {useParams} from "react-router";
-import Header from "./Header";
-import Info from "./Info";
-import Footer from "./Footer";
+import Header from "../Header";
+import Info from "../Info";
+import Footer from "../Footer";
 import Button from "@mui/material/Button";
 import ReactPlayer from 'react-player'
-import AuthContext from "../context/AuthContext";
+import AuthContext from "../../context/AuthContext";
 import {useNavigate} from "react-router-dom";
 
 
@@ -109,68 +109,68 @@ function Lesson1(props){
         <React.Fragment>
             <Header/>
             <Info/>
-        <Grid container spacing={1}>
-                    <Grid item xs={12}>
-                        <H1 key={lekcija.id}>{lekcija.title}</H1>
-                    </Grid>
+            <Grid container spacing={1}>
+                <Grid item xs={12}>
+                    <H1 key={lekcija.id}>{lekcija.title}</H1>
+                </Grid>
 
-                    <Grid item xs={6}>
-                        <H2>{lekcija.subtitle1}</H2>
-                        <Item>{lekcija.part1}</Item>
-                    </Grid>
+                <Grid item xs={6}>
+                    <H2>{lekcija.subtitle1}</H2>
+                    <Item>{lekcija.part1}</Item>
+                </Grid>
 
-                    <Grid item xs={6}>
-                        <H2>{lekcija.subtitle2}</H2>
-                        <Item>{lekcija.part2}</Item>
-                    </Grid>
-                    <Grid item xs={6}>
-                        <H2>{lekcija.subtitle3}</H2>
-                        <Item>
-                            <UL>
-                                <li>{lekcija.part3}</li>
-                            </UL>
-                        </Item>
-                    </Grid>
-            <Grid item xs={6}>
-                <H2>SLIKE</H2>
-                <Item style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                    <img
-                        src={lekcija.image}
-                        alt='slika'
-                        height={390}
-                        loading="lazy"
-                    />
-                </Item>
-            </Grid>
-            <Grid item xs={6}>
-                <H2>VIDEO</H2>
-                <Item>
-                    Ispod se nalazi video, preporučujemo Vam da ga pogledate!
-                    <br/>
-                    {/*<Link href={lekcija.video} color="#b71c1c">
+                <Grid item xs={6}>
+                    <H2>{lekcija.subtitle2}</H2>
+                    <Item>{lekcija.part2}</Item>
+                </Grid>
+                <Grid item xs={6}>
+                    <H2>{lekcija.subtitle3}</H2>
+                    <Item>
+                        <UL>
+                            <li>{lekcija.part3}</li>
+                        </UL>
+                    </Item>
+                </Grid>
+                <Grid item xs={6}>
+                    <H2>SLIKE</H2>
+                    <Item style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                        <img
+                            src={lekcija.image}
+                            alt='slika'
+                            height={390}
+                            loading="lazy"
+                        />
+                    </Item>
+                </Grid>
+                <Grid item xs={6}>
+                    <H2>VIDEO</H2>
+                    <Item>
+                        Ispod se nalazi video, preporučujemo Vam da ga pogledate!
+                        <br/>
+                        {/*<Link href={lekcija.video} color="#b71c1c">
                         {'Video'}
                     </Link>*/}
-                    <ReactPlayer url={lekcija.video} playing controls={true}/>
+                        <ReactPlayer url={lekcija.video} playing controls={true}/>
 
-                </Item>
+                    </Item>
+                </Grid>
+                <Grid item xs={6}>
+                    <H2>PITANJA</H2>
+                    <Item>
+                        Nakon završene prve lekcije u nastavku imate set pitnja koji će Vam pomoći, da se spremite za završni test iz Prve pomoći.
+                        <br/>
+                        <Link href={`/pitanja/${lekcija.id}`} color="#b71c1c">
+                            {'Pitanja'}
+                        </Link>
+                    </Item>
+                </Grid>
+                <Grid item xs={12} style={{ display: 'flex', justifyContent: 'right', alignItems: 'right', marginRight: '10px' }}>
+                    <Button variant="contained"
+                            onClick={setProgres}
+                            disabled={disableButton}
+                    >Završena lekcija -></Button>
+                </Grid>
             </Grid>
-            <Grid item xs={6}>
-                <H2>PITANJA</H2>
-                <Item>
-                    Nakon završene prve lekcije u nastavku imate set pitnja koji će Vam pomoći, da se spremite za završni test iz Prve pomoći.
-                    <br/>
-                    <Link href={`/pitanja/${lekcija.id}`} color="#b71c1c">
-                        {'Pitanja'}
-                    </Link>
-                </Item>
-            </Grid>
-            <Grid item xs={12} style={{ display: 'flex', justifyContent: 'right', alignItems: 'right', marginRight: '10px' }}>
-                   <Button variant="contained"
-                           onClick={setProgres}
-                           disabled={disableButton}
-                   >Završena lekcija -></Button>
-            </Grid>
-        </Grid>
             <Footer/>
         </React.Fragment>
     )
