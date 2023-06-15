@@ -32,14 +32,14 @@ function Navbar() {
     },[])
     useEffect(() => {
         const handleResize = () => {
-            setIsSmallScreen(window.innerWidth <= 768); // Promijenite ovu vrijednost prema potrebama
+            setIsSmallScreen(window.innerWidth <= 768);
         };
 
-        handleResize(); // Provjerite veličinu ekrana prilikom prvog renderiranja
-        window.addEventListener('resize', handleResize); // Dodajte event slušatelja za promjenu veličine ekrana
+        handleResize();
+        window.addEventListener('resize', handleResize);
 
         return () => {
-            window.removeEventListener('resize', handleResize); // Maknite event slušatelja prilikom unmounta komponente
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
