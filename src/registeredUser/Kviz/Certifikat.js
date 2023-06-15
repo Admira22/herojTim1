@@ -131,7 +131,7 @@ import { renderToString } from 'react-dom/server';
 import html2pdf from '../../../node_modules/html2pdf.js/dist/html2pdf';
 import Paper from "@mui/material/Paper";
 import Box from "@mui/material/Box";
-import myLogo from '../../images/myLogo.png';
+import herojLogo from '../../images/herojLogo.png';
 import Button from "@mui/material/Button";
 import { styled } from "@mui/material/styles";
 import axios from "axios";
@@ -202,7 +202,7 @@ const Cerfifikat = ({ profile }) => {
                     >
                         <H1>CERTIFIKAT</H1>
                         <img
-                            src={myLogo}
+                            src={herojLogo}
                             alt="Certificate Image"
                             style={{
                                 width: '100px',
