@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './Navbar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './HeartAttack.css';
+import './FirstAid.css';
 import Navbar from "./Navbar";
 import {useParams} from "react-router";
 import axios from "axios";

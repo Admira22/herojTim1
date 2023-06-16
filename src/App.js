@@ -13,7 +13,6 @@ import SignIn from "./login/SignIn";
 import {AuthProvider} from "./context/AuthContext";
 import Test from "./registeredUser/Kviz/Test";
 import Home from "./unregisteredUser/Home";
-import HeartAttack from "./unregisteredUser/HeartAttack";
 import FirstAid from "./unregisteredUser/FirstAid";
 import Certifikat from "./registeredUser/Kviz/Certifikat";
 
@@ -47,7 +46,6 @@ function App() {
                 <BrowserRouter>
                     <Routes>
                         <Route path="/" element={<Home/>}/>
-                        <Route path="/heartattack" element={<HeartAttack/>} />
                         <Route path="/bolest/:id" element={<FirstAid/>}/>
                         <Route path="/signUp" element={<SignUp />} />
                     </Routes>
@@ -63,7 +61,6 @@ function App() {
                             <Route path="/pitanja/:id" element={<Questions />} />
                             <Route path="/Test" element={<Test/>}/>
                             <Route path="/certifikat" element={<Certifikat/>}/>
-
                         </Routes>
                     </AuthProvider>
                 </BrowserRouter>

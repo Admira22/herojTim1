@@ -46,7 +46,8 @@
     border-radius: 5px;
     -webkit-transition: all 0.3s;
     transition: all 0.3s;
-    margin-right: 10px;
+    margin-right: 150px;
+
 }
 
 #main-container .custom_nav-container.flex-column .nav-link {
