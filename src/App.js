@@ -15,6 +15,7 @@ import Test from "./registeredUser/Kviz/Test";
 import Home from "./unregisteredUser/Home";
 import FirstAid from "./unregisteredUser/FirstAid";
 import Certifikat from "./registeredUser/Kviz/Certifikat";
+import Search from "./registeredUser/Search";
 
 
 function App() {
@@ -55,12 +56,13 @@ function App() {
                             <Route path="/Logo" element={<WelcomePage />} />
                             <Route path="/Profil" element={<Profile />} />
                             <Route path="/Blog" element={<Blogs/>} />
-                            <Route path="/Blog/:id" element={<Blog />} />
+                            <Route path="/Blog/:id" element={<Blog />}  />
                             <Route path="/Lekcije" element={<AllLessons />} />
                             <Route path="/Lekcija/:id" element={<Lesson1 />} />
                             <Route path="/pitanja/:id" element={<Questions />} />
                             <Route path="/Test" element={<Test/>}/>
                             <Route path="/certifikat" element={<Certifikat/>}/>
+                            <Route path="/pretraga/:id" element={<Search/>}/>
                         </Routes>
                     </AuthProvider>
                 </BrowserRouter>

@@ -25,7 +25,7 @@ const SearchBar = () => {
         setSearchTerm(response.data[0])
         console.log(searchTerm)
         console.log(response.data[0]?.id)
-        navigate(`../bolest/${response.data[0]?.id || 'null'}`, { replace: true })
+        navigate(`../pretraga/${response.data[0]?.id || 'null'}`, { replace: true })
         console.log('HEJ2')
 
     }
