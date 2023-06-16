@@ -18,7 +18,7 @@ import Footer from "../registeredUser/Footer";
 function Home00() {
     return(
         <div className="image-container">
-            <img className="fade-in-image" src={nasl} alt="Opis slike"/>
+           <img className="fade-in-image" src={nasl} alt="Opis slike"/>
         </div>
 
     );
@@ -30,8 +30,7 @@ function Home1() {
             <div className="container">
                 <div className="heading_container heading_center">
                    <h4 id="em">
-
-                        Hitna prva pomoć: Brza uputstva za kritične situacije
+                       Hitna prva pomoć: Brza uputstva za kritične situacije
                     </h4>
                       <p className="col-md-10 mx-auto px-0" id="em1" >
                         Jeste li u hitnoj situaciji? Evo brzih uputstava za prvu pomoć!

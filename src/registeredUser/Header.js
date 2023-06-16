@@ -66,12 +66,63 @@ const SearchBar = () => {
 
 
 function Header() {
-    let {user,logoutUser} = useContext(AuthContext)
-    const titles = ["Lekcije", "Profil", "Blog", "Završni test"];
+    let {user,logoutUser,authTokens} = useContext(AuthContext)
+    console.log(user)
+    const titles = ["Lekcije", "Profil", "Blog"];
 
     const navigate = useNavigate();
     const handleLogoClick = () => {
         navigate('/Logo');
+    };
+
+    const [disableButton, setDisableButton] = useState(false);
+
+    let [profile, setProfile] = useState([])
+
+    const url = 'http://127.0.0.1:8000/'
+
+    useEffect(()=> {
+        getNotes()
+    }, [])
+
+    let getNotes = async() =>{
+        let response = await fetch(`${url}profile/`, {
+            method:'GET',
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization':'Bearer ' + String(authTokens.access)
+            }
+        })
+        let data = await response.json()
+       // console.log(data)
+
+        if(response.status === 200){
+            setProfile(data)
+        }else if(response.statusText === 'Unauthorized'){
+            logoutUser()
+        }
+
+    }
+
+    const handleClick = async () => {
+        try {
+            console.log("desckooo")
+            if (profile.progres < 100) {
+                console.log("o hej")
+                setDisableButton(false)
+            }
+        }
+        catch (error){
+            console.log(error)
+        }
+        finally {
+            if (profile.progres === 100){
+                navigate('/Test')
+            }
+            else {
+                alert('Vaš progres nije zadovoljavajući, ne možete pristupiti završnom testu!')
+            }
+        }
     };
 
 
@@ -88,12 +139,19 @@ function Header() {
                     <Link color="#ffebee"
                           noWrap
                           variant="body1"
-                          href={titles=== "Završni test" ? '/Test' : `/${titles}`}
+                          href={`/${titles}`}
+                          //href={titles=== "Završni test" ? '/Test' : `/${titles}`}
                           sx={{ p: 1, flexShrink: 0, textDecoration: 'none',
                               '&:visited': {
                                   color: '#ffebee',
                               },}}> {titles.toUpperCase()} </Link>
                 ))}
+                {user ?
+                    (
+                    <Button disabled={disableButton} onClick={handleClick}  style={{ color: "#ffebee" }}>završni test</Button>
+                ):(
+                    <Link to="/Test"></Link>
+                )}
                 {user ? (
                     <Button onClick={logoutUser} style={{ color: "#ffebee" }}>odjavi se</Button>
                 ):(
